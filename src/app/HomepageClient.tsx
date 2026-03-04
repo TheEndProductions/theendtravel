@@ -30,10 +30,9 @@ export default function HomepageClient() {
       <div style={{ opacity: hookDone || !shouldShowHook ? 1 : 0, transition: 'opacity 0.5s ease' }}>
 
         {/* 1. Hero */}
-        <Section id="hero">
-          <div style={{ position: 'relative', minHeight: '80vh' }}>
+        <section id="hero" style={{ position: 'relative', width: '100vw', height: '100vh', overflow: 'hidden', marginLeft: 'calc(-50vw + 50%)', marginRight: 'calc(-50vw + 50%)' }}>
             <HeroVideo hookDone={hookDone} />
-            <div style={{ position: 'relative', zIndex: 1, minHeight: '80vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '20px', maxWidth: '720px' }}>
+            <div style={{ position: 'relative', zIndex: 1, height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '20px', maxWidth: '720px', padding: '0 40px' }}>
             <SectionEyebrow>TheEndProductions</SectionEyebrow>
             <h1 style={{ fontFamily: '"Playfair Display", serif', fontSize: 'clamp(36px, 6vw, 64px)', fontWeight: 600, color: '#F5F2ED', margin: 0, lineHeight: 1.1 }}>To See The World<br /><em style={{ fontWeight: 400, color: '#8B7355' }}>& To Find Each Other</em></h1>
             <p style={{ fontFamily: '"DM Sans", sans-serif', fontSize: '17px', color: '#D4CFC7', lineHeight: 1.7, margin: 0, maxWidth: '540px' }}>Travel filmmaking, expedition gear, and stories from the road. A creative studio built on the belief that human connection is the greatest adventure.</p>
@@ -42,8 +41,7 @@ export default function HomepageClient() {
               <a href="/films" style={{ display: 'inline-flex', alignItems: 'center', height: '48px', padding: '0 28px', borderRadius: '6px', border: '1px solid rgba(245,242,237,0.15)', color: '#F5F2ED', fontSize: '15px', fontFamily: '"DM Sans", sans-serif', textDecoration: 'none' }}>Watch Films</a>
             </div>
           </div>
-          </div>
-        </Section>
+        </section>
 
         {/* 2. Mission */}
         <Section bg="rgba(26,21,16,0.3)">
