@@ -20,9 +20,9 @@ export default function HomepageClient() {
       <div>
 
         {/* 1. Hero */}
-        <section id="hero" style={{ position: 'relative', width: '100vw', height: '70svh', overflow: 'hidden', marginLeft: 'calc(-50vw + 50%)', marginRight: 'calc(-50vw + 50%)' }}>
+        <section id="hero" style={{ position: 'relative', width: '100vw', height: '100vh', overflow: 'hidden', marginLeft: 'calc(-50vw + 50%)', marginRight: 'calc(-50vw + 50%)' }}>
             <HeroVideo hookDone={true} />
-            <div style={{ position: 'relative', zIndex: 1, height: '70svh', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '20px', maxWidth: '720px', padding: '0 24px' }}>
+            <div style={{ position: 'relative', zIndex: 1, height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '20px', maxWidth: '720px', padding: '0 24px' }}>
             <SectionEyebrow>TheEndProductions</SectionEyebrow>
             <h1 style={{ fontFamily: '"Playfair Display", serif', fontSize: 'clamp(28px, 6vw, 64px)', fontWeight: 600, color: '#F5F2ED', margin: 0, lineHeight: 1.1 }}>To See The World<br /><em style={{ fontWeight: 400, color: '#8B7355' }}>& To Find Each Other</em></h1>
             <p style={{ fontFamily: '"DM Sans", sans-serif', fontSize: '17px', color: '#D4CFC7', lineHeight: 1.7, margin: 0, maxWidth: '540px' }}>Travel filmmaking, expedition gear, and stories from the road. A creative studio built on the belief that human connection is the greatest adventure.</p>
