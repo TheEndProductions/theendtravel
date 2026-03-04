@@ -59,50 +59,28 @@ export default function Earth({ lowRes = false, opacity = 1 }: EarthProps) {
           float lat = (uv.y - 0.5) * 3.14159;
           float lon = (uv.x - 0.5) * 6.28318;
 
-          vec2 noiseCoord = vec2(lon * 1.2, lat * 1.5);
-          float landMass = fbm(noiseCoord * 1.8 + vec2(3.0, 1.5));
+          vec2 nc = vec2(lon * 1.2, lat * 1.5);
+          float landMass = fbm(nc * 1.8 + vec2(3.0, 1.5));
 
           float tropicalBand = 1.0 - smoothstep(0.0, 0.6, abs(lat));
           float polarMask = smoothstep(1.2, 1.5, abs(lat));
           float threshold = 0.42 + tropicalBand * 0.05 - polarMask * 0.15;
-          float isLand = smoothstep(threshold - 0.02, threshold + 0.02, landMass);
 
-          float elevation = fbm(noiseCoord * 3.5 + vec2(7.0, 2.0));
+          // Coastline outline only
+          float edge = smoothstep(threshold - 0.02, threshold - 0.005, landMass)
+                     * (1.0 - smoothstep(threshold + 0.005, threshold + 0.02, landMass));
 
-          vec3 oceanDeep = vec3(0.024, 0.039, 0.063);
-          vec3 oceanShallow = vec3(0.055, 0.11, 0.15);
-          vec3 landLow = vec3(0.07, 0.06, 0.05);
-          vec3 landMid = vec3(0.35, 0.29, 0.22);
-          vec3 landHigh = vec3(0.55, 0.45, 0.33);
-          vec3 snow = vec3(0.7, 0.68, 0.65);
+          // Black base
+          vec3 baseColor = vec3(0.02, 0.02, 0.02);
 
-          float oceanDepth = fbm(noiseCoord * 2.0 + vec2(5.0, 8.0));
-          vec3 oceanColor = mix(oceanDeep, oceanShallow, oceanDepth * 0.4);
+          // White continent outlines
+          baseColor += vec3(0.85, 0.85, 0.85) * edge;
 
-          vec3 landColor = mix(landLow, landMid, smoothstep(0.3, 0.5, elevation));
-          landColor = mix(landColor, landHigh, smoothstep(0.5, 0.7, elevation));
-          landColor = mix(landColor, snow, smoothstep(0.75, 0.85, elevation) * 0.4);
-
-          float polar = smoothstep(1.1, 1.4, abs(lat));
-          landColor = mix(landColor, snow * 0.6, polar);
-          oceanColor = mix(oceanColor, vec3(0.15, 0.17, 0.2), polar * 0.5);
-
-          vec3 baseColor = mix(oceanColor, landColor, isLand);
-
-          float coastline = smoothstep(threshold - 0.015, threshold, landMass) * (1.0 - smoothstep(threshold, threshold + 0.015, landMass));
-          baseColor += vec3(0.08, 0.1, 0.12) * coastline * 2.0;
-
-          float gridLat = smoothstep(0.97, 1.0, abs(sin(lat * 6.0)));
-          float gridLon = smoothstep(0.97, 1.0, abs(sin(lon * 6.0)));
-          float grid = max(gridLat, gridLon) * 0.06;
-          baseColor += vec3(grid);
-
+          // Subtle rim glow
           vec3 viewDir = normalize(-vPosition);
           float rim = 1.0 - max(dot(viewDir, vNormal), 0.0);
-          rim = pow(rim, 3.5);
-          baseColor += vec3(0.1, 0.18, 0.25) * rim;
-          float atmosphere = pow(rim, 5.0) * 0.3;
-          baseColor += vec3(0.16, 0.29, 0.37) * atmosphere;
+          rim = pow(rim, 4.0);
+          baseColor += vec3(0.06, 0.08, 0.1) * rim;
 
           gl_FragColor = vec4(baseColor, 1.0);
         }

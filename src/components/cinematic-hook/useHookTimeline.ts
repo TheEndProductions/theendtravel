@@ -4,15 +4,14 @@ import { useState, useRef, useCallback, useEffect } from 'react';
 export type HookPhase = 'idle' | 'stars' | 'globe' | 'markers' | 'crossfade' | 'headline' | 'dissolve' | 'complete';
 
 const PHASE_TIMINGS: { phase: HookPhase; start: number; end: number }[] = [
-  { phase: 'stars', start: 0, end: 1.5 },
-  { phase: 'globe', start: 1.5, end: 4.0 },
-  { phase: 'markers', start: 4.0, end: 7.0 },
-  { phase: 'crossfade', start: 7.0, end: 9.5 },
-  { phase: 'headline', start: 9.5, end: 13.0 },
-  { phase: 'dissolve', start: 13.0, end: 14.5 },
+  { phase: 'stars', start: 0, end: 0.8 },
+  { phase: 'globe', start: 0.8, end: 2.0 },
+  { phase: 'markers', start: 2.0, end: 3.5 },
+  { phase: 'headline', start: 3.5, end: 7.0 },
+  { phase: 'dissolve', start: 7.0, end: 8.5 },
 ];
 
-const TOTAL_DURATION = 14.5;
+const TOTAL_DURATION = 8.5;
 
 export function phaseOpacity(elapsed: number, fadeIn: number, fadeInEnd: number, fadeOut?: number, fadeOutEnd?: number): number {
   if (elapsed < fadeIn) return 0;
