@@ -8,7 +8,6 @@ export default function HeroVideo({ hookDone }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [ended, setEnded] = useState(false);
 
-  // Play once hook finishes
   useEffect(() => {
     if (hookDone && videoRef.current) {
       videoRef.current.currentTime = 0;
@@ -16,7 +15,6 @@ export default function HeroVideo({ hookDone }: Props) {
     }
   }, [hookDone]);
 
-  // When video ends, pause on last frame
   const handleEnded = useCallback(() => {
     if (videoRef.current) {
       videoRef.current.currentTime = videoRef.current.duration - 0.1;
@@ -25,7 +23,6 @@ export default function HeroVideo({ hookDone }: Props) {
     setEnded(true);
   }, []);
 
-  // Observe scroll — replay when scrolled back into view after it ended
   useEffect(() => {
     const container = containerRef.current;
     const video = videoRef.current;
@@ -62,11 +59,13 @@ export default function HeroVideo({ hookDone }: Props) {
         onEnded={handleEnded}
         style={{
           position: 'absolute',
-          top: 0,
-          left: 0,
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
           width: '100%',
           height: '100%',
           objectFit: 'cover',
+          objectPosition: 'center 30%',
         }}
       />
       <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.6) 60%, rgba(10,10,10,0.95) 100%)' }} />
