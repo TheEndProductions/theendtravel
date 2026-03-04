@@ -78,7 +78,7 @@ export default function KickstarterCTA({ compact = false, source = 'other' }: Pr
         <span style={{ fontFamily: '"DM Sans", sans-serif', fontSize: '14px', color: '#8B7355', textDecoration: 'line-through' }}>$376</span>
         <span style={{ padding: '2px 8px', borderRadius: '10px', background: 'rgba(196,83,10,0.15)', color: '#C4530A', fontSize: '12px', fontFamily: '"JetBrains Mono", monospace' }}>Save $47</span>
       </div>
-      <a href="/shop/all/endless-system" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', height: '48px', padding: '0 32px', borderRadius: '6px', background: '#C4530A', color: '#F5F2ED', fontSize: '15px', fontFamily: '"DM Sans", sans-serif', fontWeight: 600, textDecoration: 'none' }}>Buy the System →</a>
+      <a href="/shop/all/endless-system" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', height: '48px', padding: '0 32px', borderRadius: '6px', background: '#C4530A', color: '#F5F2ED', fontSize: '15px', fontFamily: '"DM Sans", sans-serif', fontWeight: 600, textDecoration: 'none' }}>Buy the Ecosystem →</a>
     </div>
   );
 }

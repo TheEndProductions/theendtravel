@@ -38,7 +38,7 @@ export default function HomepageClient() {
         {/* 3. Endless Backpack */}
         <Section bg="rgba(26,21,16,0.3)" id="endless">
           <SectionEyebrow>Gear</SectionEyebrow>
-          <h2 style={{ fontFamily: '"Playfair Display", serif', fontSize: '28px', fontWeight: 600, color: '#F5F2ED', margin: 0, marginBottom: '32px' }}>The Endless Backpack System</h2>
+          <h2 style={{ fontFamily: '"Playfair Display", serif', fontSize: '28px', fontWeight: 600, color: '#F5F2ED', margin: 0, marginBottom: '32px' }}>The Endless Backpack Ecosystem</h2>
           <HomepageEndlessSection />
         </Section>
 

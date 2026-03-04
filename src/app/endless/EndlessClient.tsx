@@ -17,7 +17,7 @@ export default function EndlessClient() {
         <div style={{ minHeight: '60vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '16px', maxWidth: '600px' }}>
           <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: '10px', color: '#C4530A', textTransform: 'uppercase', letterSpacing: '0.2em' }}>The Endless Backpack</div>
           <h1 style={{ fontFamily: '"Playfair Display", serif', fontSize: 'clamp(32px, 5vw, 52px)', fontWeight: 600, color: '#F5F2ED', margin: 0, lineHeight: 1.15 }}>A System, Not Just a Bag</h1>
-          <p style={{ fontFamily: '"DM Sans", sans-serif', fontSize: '17px', color: '#D4CFC7', lineHeight: 1.7, margin: 0 }}>4 pieces designed to work together. From summit to city, from carry-on to day trip — one system handles it all.</p>
+          <p style={{ fontFamily: '"DM Sans", sans-serif', fontSize: '17px', color: '#D4CFC7', lineHeight: 1.7, margin: 0 }}>4 pieces designed to work together. From summit to city, from carry-on to day trip — one ecosystem handles it all.</p>
           <KickstarterCTA source="endless-hero" />
         </div>
       </Section>
@@ -26,13 +26,13 @@ export default function EndlessClient() {
       <Section bg="rgba(26,21,16,0.3)">
         <div style={{ maxWidth: '640px', margin: '0 auto', textAlign: 'center', display: 'flex', flexDirection: 'column', gap: '16px' }}>
           <h2 style={{ fontFamily: '"Playfair Display", serif', fontSize: '28px', fontWeight: 600, color: '#F5F2ED', margin: 0 }}>Why a System?</h2>
-          <p style={{ fontFamily: '"DM Sans", sans-serif', fontSize: '16px', color: '#D4CFC7', lineHeight: 1.7, margin: 0 }}>Most travel bags solve one problem. You end up buying five bags that don't work together. The Endless System is four pieces engineered as one — they nest, attach, and adapt so you carry exactly what you need, whether that's a week in Southeast Asia or an afternoon in your own city.</p>
+          <p style={{ fontFamily: '"DM Sans", sans-serif', fontSize: '16px', color: '#D4CFC7', lineHeight: 1.7, margin: 0 }}>Most travel bags solve one problem. You end up buying five bags that don't work together. The Endless Ecosystem is four pieces engineered as one — they nest, attach, and adapt so you carry exactly what you need, whether that's a week in Southeast Asia or an afternoon in your own city.</p>
         </div>
       </Section>
 
       {/* Pieces */}
       <Section>
-        <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: '10px', color: '#8B7355', textTransform: 'uppercase', letterSpacing: '0.2em', marginBottom: '24px' }}>The System</div>
+        <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: '10px', color: '#8B7355', textTransform: 'uppercase', letterSpacing: '0.2em', marginBottom: '24px' }}>The Ecosystem</div>
         <PieceSelector />
       </Section>
 
@@ -64,7 +64,7 @@ export default function EndlessClient() {
       <Section bg="rgba(26,21,16,0.3)">
         <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', gap: '16px', alignItems: 'center' }}>
           <h2 style={{ fontFamily: '"Playfair Display", serif', fontSize: '28px', fontWeight: 600, color: '#F5F2ED', margin: 0 }}>Ready for Every Journey</h2>
-          <p style={{ fontFamily: '"DM Sans", sans-serif', fontSize: '16px', color: '#D4CFC7', lineHeight: 1.7, margin: 0, maxWidth: '500px' }}>The Endless System was designed by travelers, tested on the road, and built to last.</p>
+          <p style={{ fontFamily: '"DM Sans", sans-serif', fontSize: '16px', color: '#D4CFC7', lineHeight: 1.7, margin: 0, maxWidth: '500px' }}>The Endless Ecosystem was designed by travelers, tested on the road, and built to last.</p>
           <KickstarterCTA source="endless-footer" />
         </div>
       </Section>

@@ -27,7 +27,7 @@ export default function HomepageEndlessSection() {
 
         <KickstarterCTA compact source="homepage" />
 
-        <a href="/endless" style={{ fontFamily: '"DM Sans", sans-serif', fontSize: '14px', color: '#C4530A', textDecoration: 'none', fontWeight: 600 }}>Explore the System →</a>
+        <a href="/endless" style={{ fontFamily: '"DM Sans", sans-serif', fontSize: '14px', color: '#C4530A', textDecoration: 'none', fontWeight: 600 }}>Explore the Ecosystem →</a>
       </div>
     </div>
   );
