@@ -35,7 +35,14 @@ export default function HomepageClient() {
           </div>
         </Section>
 
-        {/* 3. Films */}
+        {/* 3. Endless Backpack */}
+        <Section bg="rgba(26,21,16,0.3)" id="endless">
+          <SectionEyebrow>Gear</SectionEyebrow>
+          <h2 style={{ fontFamily: '"Playfair Display", serif', fontSize: '28px', fontWeight: 600, color: '#F5F2ED', margin: 0, marginBottom: '32px' }}>The Endless Backpack System</h2>
+          <HomepageEndlessSection />
+        </Section>
+
+        {/* 4. Films */}
         <Section>
           <SectionEyebrow>Films</SectionEyebrow>
           <h2 style={{ fontFamily: '"Playfair Display", serif', fontSize: '28px', fontWeight: 600, color: '#F5F2ED', margin: 0, marginBottom: '24px' }}>Stories From The Road</h2>
@@ -51,13 +58,6 @@ export default function HomepageClient() {
             ))}
           </div>
           <a href="/films" style={{ display: 'inline-flex', marginTop: '24px', fontFamily: '"DM Sans", sans-serif', fontSize: '14px', color: '#C4530A', textDecoration: 'none', fontWeight: 600 }}>View All Films →</a>
-        </Section>
-
-        {/* 4. Endless Backpack */}
-        <Section bg="rgba(26,21,16,0.3)" id="endless">
-          <SectionEyebrow>Gear</SectionEyebrow>
-          <h2 style={{ fontFamily: '"Playfair Display", serif', fontSize: '28px', fontWeight: 600, color: '#F5F2ED', margin: 0, marginBottom: '32px' }}>The Endless Backpack System</h2>
-          <HomepageEndlessSection />
         </Section>
 
         {/* 5. Journal */}
