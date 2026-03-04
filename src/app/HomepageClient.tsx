@@ -1,7 +1,8 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import HomepageEndlessSection from '@/components/endless/HomepageEndlessSection';
 import HeroVideo from '@/components/layout/HeroVideo';
+import HeroHeadline from '@/components/layout/HeroHeadline';
 
 const Section = ({ children, bg, id }: { children: React.ReactNode; bg?: string; id?: string }) => (
   <section id={id} style={{ padding: '100px 24px', background: bg || 'transparent' }}>
@@ -22,15 +23,7 @@ export default function HomepageClient() {
         {/* 1. Hero */}
         <section id="hero" style={{ position: 'relative', width: '100vw', height: '100vh', overflow: 'hidden', marginLeft: 'calc(-50vw + 50%)', marginRight: 'calc(-50vw + 50%)' }}>
             <HeroVideo hookDone={true} />
-            <div style={{ position: 'relative', zIndex: 1, height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '20px', maxWidth: '720px', padding: '0 24px' }}>
-            <SectionEyebrow>TheEndProductions</SectionEyebrow>
-            <h1 style={{ fontFamily: '"Playfair Display", serif', fontSize: 'clamp(28px, 6vw, 64px)', fontWeight: 600, color: '#F5F2ED', margin: 0, lineHeight: 1.1 }}>To See The World<br /><em style={{ fontWeight: 400, color: '#8B7355' }}>& To Find Each Other</em></h1>
-            <p style={{ fontFamily: '"DM Sans", sans-serif', fontSize: '17px', color: '#D4CFC7', lineHeight: 1.7, margin: 0, maxWidth: '540px' }}>Travel filmmaking, expedition gear, and stories from the road. A creative studio built on the belief that human connection is the greatest adventure.</p>
-            <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginTop: '8px' }}>
-              <a href="/journey-map" style={{ display: 'inline-flex', alignItems: 'center', height: '48px', padding: '0 28px', borderRadius: '6px', background: '#C4530A', color: '#F5F2ED', fontSize: '15px', fontFamily: '"DM Sans", sans-serif', fontWeight: 600, textDecoration: 'none' }}>Explore the Map →</a>
-              <a href="/films" style={{ display: 'inline-flex', alignItems: 'center', height: '48px', padding: '0 28px', borderRadius: '6px', border: '1px solid rgba(245,242,237,0.15)', color: '#F5F2ED', fontSize: '15px', fontFamily: '"DM Sans", sans-serif', textDecoration: 'none' }}>Watch Films</a>
-            </div>
-          </div>
+            <HeroHeadline />
         </section>
 
         {/* 2. Mission */}
