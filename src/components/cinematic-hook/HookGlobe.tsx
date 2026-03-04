@@ -17,26 +17,21 @@ const MARKERS = [
 
 function RotatingGlobe({ elapsed }: { elapsed: number }) {
   const groupRef = useRef<THREE.Group>(null);
-  const globeOpacity = phaseOpacity(elapsed, 0.8, 2.0);
-
-  useFrame((_, delta) => {
-    if (groupRef.current) groupRef.current.rotation.y += delta * 0.06;
-  });
-
+  const globeOpacity = phaseOpacity(elapsed, 1.5, 4.0);
+  useFrame((_, delta) => { if (groupRef.current) groupRef.current.rotation.y += delta * 0.06; });
   return (
     <group ref={groupRef}>
       <Earth lowRes opacity={globeOpacity} />
       <Atmosphere opacity={globeOpacity * 0.6} />
       {MARKERS.map(([lat, lng], i) => {
         const pos = latLngToVector3(lat, lng, 0.01);
-        const delay = 2.0 + i * 0.15;
-        const opacity = phaseOpacity(elapsed, delay, delay + 0.3, 7.0, 7.5);
+        const delay = 4.0 + i * 0.2;
+        const opacity = phaseOpacity(elapsed, delay, delay + 0.4, 13.0, 14.0);
         if (opacity <= 0) return null;
-        const color = MARKER_COLORS[i % MARKER_COLORS.length];
         return (
           <mesh key={i} position={pos} scale={[0.012, 0.012, 0.012]}>
             <sphereGeometry args={[1, 6, 6]} />
-            <meshBasicMaterial color={color} transparent opacity={opacity * 0.8} />
+            <meshBasicMaterial color={MARKER_COLORS[i % MARKER_COLORS.length]} transparent opacity={opacity * 0.8} />
           </mesh>
         );
       })}

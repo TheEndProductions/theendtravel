@@ -40,27 +40,18 @@ export default function CinematicHook({ onComplete, isFirstVisit }: Props) {
 
   if (phase === 'complete') return null;
 
-  const overlayOpacity = phaseOpacity(elapsed, 0, 0, 7.0, 7.8);
+  const overlayOpacity = phaseOpacity(elapsed, 0, 0, 13.0, 14.5);
 
   return (
     <div style={{ position: 'fixed', inset: 0, zIndex: 9999, background: '#0A0A0A', opacity: overlayOpacity }}>
-      {/* Vignette */}
       <div style={{ position: 'absolute', inset: 0, zIndex: 5, pointerEvents: 'none', background: 'radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.5) 100%)' }} />
-
-      {/* Globe layer */}
       {capability === 'full' ? (
         <HookGlobe elapsed={elapsed} />
       ) : (
-        <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at center, #1a1a2e 0%, #0A0A0A 70%)', opacity: phaseOpacity(elapsed, 0.8, 2.0) }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at center, #1a1a2e 0%, #0A0A0A 70%)', opacity: phaseOpacity(elapsed, 1.5, 4.0) }} />
       )}
-
-      {/* Crossfade images */}
       <HookCrossfade elapsed={elapsed} />
-
-      {/* Headline */}
       <HookHeadline elapsed={elapsed} />
-
-      {/* Skip button (repeat visits only) */}
       {!isFirstVisit && <HookSkipButton onSkip={skipNow} />}
     </div>
   );

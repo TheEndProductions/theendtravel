@@ -4,13 +4,15 @@ import { useState, useRef, useCallback, useEffect } from 'react';
 export type HookPhase = 'idle' | 'stars' | 'globe' | 'markers' | 'crossfade' | 'headline' | 'dissolve' | 'complete';
 
 const PHASE_TIMINGS: { phase: HookPhase; start: number; end: number }[] = [
-  { phase: 'stars', start: 0, end: 0.8 },
-  { phase: 'globe', start: 0.8, end: 2.0 },
-  { phase: 'markers', start: 2.0, end: 4.0 },
-  { phase: 'crossfade', start: 4.0, end: 6.0 },
-  { phase: 'headline', start: 6.0, end: 7.0 },
-  { phase: 'dissolve', start: 7.0, end: 7.8 },
+  { phase: 'stars', start: 0, end: 1.5 },
+  { phase: 'globe', start: 1.5, end: 4.0 },
+  { phase: 'markers', start: 4.0, end: 7.0 },
+  { phase: 'crossfade', start: 7.0, end: 9.5 },
+  { phase: 'headline', start: 9.5, end: 13.0 },
+  { phase: 'dissolve', start: 13.0, end: 14.5 },
 ];
+
+const TOTAL_DURATION = 14.5;
 
 export function phaseOpacity(elapsed: number, fadeIn: number, fadeInEnd: number, fadeOut?: number, fadeOutEnd?: number): number {
   if (elapsed < fadeIn) return 0;
@@ -30,15 +32,9 @@ export function useHookTimeline(onComplete: () => void) {
   const tick = useCallback((now: number) => {
     const el = (now - startRef.current) / 1000;
     setElapsed(el);
-
     const current = PHASE_TIMINGS.find((p) => el >= p.start && el < p.end);
     if (current) setPhase(current.phase);
-
-    if (el >= 7.8) {
-      setPhase('complete');
-      onComplete();
-      return;
-    }
+    if (el >= TOTAL_DURATION) { setPhase('complete'); onComplete(); return; }
     rafRef.current = requestAnimationFrame(tick);
   }, [onComplete]);
 
@@ -51,7 +47,7 @@ export function useHookTimeline(onComplete: () => void) {
   const skipNow = useCallback(() => {
     if (rafRef.current) cancelAnimationFrame(rafRef.current);
     setPhase('complete');
-    setElapsed(7.8);
+    setElapsed(TOTAL_DURATION);
     onComplete();
   }, [onComplete]);
 
