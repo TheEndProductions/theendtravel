@@ -22,7 +22,7 @@ export default function Earth({ lowRes = false, opacity = 1 }: EarthProps) {
       opacity: opacity,
       emissiveMap: texture,
       emissive: new THREE.Color(0xffffff),
-      emissiveIntensity: 0.85,
+      emissiveIntensity: 1.2,
     });
   }, [texture, opacity]);
 
