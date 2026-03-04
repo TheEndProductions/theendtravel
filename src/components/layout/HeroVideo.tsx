@@ -1,16 +1,28 @@
 'use client';
 import { useRef, useState, useEffect } from 'react';
 
-export default function HeroVideo() {
+interface Props { hookDone: boolean; }
+
+export default function HeroVideo({ hookDone }: Props) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [ended, setEnded] = useState(false);
-  const [visible, setVisible] = useState(false);
+  const [hasPlayed, setHasPlayed] = useState(false);
 
+  // Play once hook is done
   useEffect(() => {
+    if (hookDone && videoRef.current && !hasPlayed) {
+      videoRef.current.currentTime = 0;
+      videoRef.current.play().catch(() => {});
+      setHasPlayed(true);
+    }
+  }, [hookDone, hasPlayed]);
+
+  // Replay when scrolled back into view
+  useEffect(() => {
+    if (!hasPlayed) return;
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setVisible(entry.isIntersecting);
-        if (entry.isIntersecting && videoRef.current) {
+        if (entry.isIntersecting && videoRef.current && ended) {
           videoRef.current.currentTime = 0;
           videoRef.current.play().catch(() => {});
           setEnded(false);
@@ -20,11 +32,10 @@ export default function HeroVideo() {
       },
       { threshold: 0.3 }
     );
-
     const el = videoRef.current;
     if (el) observer.observe(el);
     return () => { if (el) observer.unobserve(el); };
-  }, []);
+  }, [hasPlayed, ended]);
 
   return (
     <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', zIndex: 0 }}>
@@ -36,22 +47,17 @@ export default function HeroVideo() {
         onEnded={() => setEnded(true)}
         style={{
           position: 'absolute',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          minWidth: '100%',
-          minHeight: '100%',
-          width: 'auto',
-          height: 'auto',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
           objectFit: 'cover',
           opacity: ended ? 0 : 1,
           transition: 'opacity 1s ease',
         }}
       />
-      {/* Last frame stays visible via canvas capture */}
       <LastFrameCapture videoRef={videoRef} show={ended} />
-      {/* Dark overlay so text is readable */}
-      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(10,10,10,0.4) 0%, rgba(10,10,10,0.7) 70%, rgba(10,10,10,0.95) 100%)' }} />
+      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.6) 60%, rgba(10,10,10,0.95) 100%)' }} />
     </div>
   );
 }
@@ -79,13 +85,10 @@ function LastFrameCapture({ videoRef, show }: { videoRef: React.RefObject<HTMLVi
       ref={canvasRef}
       style={{
         position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        minWidth: '100%',
-        minHeight: '100%',
-        width: 'auto',
-        height: 'auto',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
         objectFit: 'cover',
         opacity: show && captured ? 1 : 0,
         transition: 'opacity 1s ease',

@@ -32,7 +32,7 @@ export default function HomepageClient() {
         {/* 1. Hero */}
         <Section id="hero">
           <div style={{ position: 'relative', minHeight: '80vh' }}>
-            <HeroVideo />
+            <HeroVideo hookDone={hookDone} />
             <div style={{ position: 'relative', zIndex: 1, minHeight: '80vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '20px', maxWidth: '720px' }}>
             <SectionEyebrow>TheEndProductions</SectionEyebrow>
             <h1 style={{ fontFamily: '"Playfair Display", serif', fontSize: 'clamp(36px, 6vw, 64px)', fontWeight: 600, color: '#F5F2ED', margin: 0, lineHeight: 1.1 }}>To See The World<br /><em style={{ fontWeight: 400, color: '#8B7355' }}>& To Find Each Other</em></h1>
