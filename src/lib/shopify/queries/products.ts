@@ -1,0 +1,5 @@
+export const GET_ALL_PRODUCTS = `query getAllProducts($first: Int = 20) { products(first: $first) { edges { node { id title handle description priceRange { minVariantPrice { amount currencyCode } } images(first: 3) { edges { node { url altText width height } } } variants(first: 5) { edges { node { id title availableForSale price { amount currencyCode } } } } } } } }`;
+
+export const GET_PRODUCT_BY_HANDLE = `query getProductByHandle($handle: String!) { productByHandle(handle: $handle) { id title handle descriptionHtml priceRange { minVariantPrice { amount currencyCode } } images(first: 10) { edges { node { url altText width height } } } variants(first: 20) { edges { node { id title availableForSale price { amount currencyCode } selectedOptions { name value } } } } } }`;
+
+export const GET_COLLECTION = `query getCollection($handle: String!, $first: Int = 20) { collectionByHandle(handle: $handle) { id title handle description products(first: $first) { edges { node { id title handle priceRange { minVariantPrice { amount currencyCode } } images(first: 1) { edges { node { url altText width height } } } } } } } }`;

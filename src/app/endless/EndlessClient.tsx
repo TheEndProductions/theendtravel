@@ -1,0 +1,73 @@
+'use client';
+import PieceSelector from '@/components/endless/PieceSelector';
+import BundleComparison from '@/components/endless/BundleComparison';
+import KickstarterCTA from '@/components/endless/KickstarterCTA';
+
+const Section = ({ children, bg }: { children: React.ReactNode; bg?: string }) => (
+  <section style={{ padding: '80px 24px', background: bg || 'transparent' }}>
+    <div style={{ maxWidth: '1000px', margin: '0 auto' }}>{children}</div>
+  </section>
+);
+
+export default function EndlessClient() {
+  return (
+    <div style={{ background: '#0A0A0A', minHeight: '100vh' }}>
+      {/* Hero */}
+      <Section>
+        <div style={{ minHeight: '60vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '16px', maxWidth: '600px' }}>
+          <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: '10px', color: '#C4530A', textTransform: 'uppercase', letterSpacing: '0.2em' }}>The Endless Backpack</div>
+          <h1 style={{ fontFamily: '"Playfair Display", serif', fontSize: 'clamp(32px, 5vw, 52px)', fontWeight: 600, color: '#F5F2ED', margin: 0, lineHeight: 1.15 }}>A System, Not Just a Bag</h1>
+          <p style={{ fontFamily: '"DM Sans", sans-serif', fontSize: '17px', color: '#D4CFC7', lineHeight: 1.7, margin: 0 }}>4 pieces designed to work together. From summit to city, from carry-on to day trip — one system handles it all.</p>
+          <KickstarterCTA source="endless-hero" />
+        </div>
+      </Section>
+
+      {/* Philosophy */}
+      <Section bg="rgba(26,21,16,0.3)">
+        <div style={{ maxWidth: '640px', margin: '0 auto', textAlign: 'center', display: 'flex', flexDirection: 'column', gap: '16px' }}>
+          <h2 style={{ fontFamily: '"Playfair Display", serif', fontSize: '28px', fontWeight: 600, color: '#F5F2ED', margin: 0 }}>Why a System?</h2>
+          <p style={{ fontFamily: '"DM Sans", sans-serif', fontSize: '16px', color: '#D4CFC7', lineHeight: 1.7, margin: 0 }}>Most travel bags solve one problem. You end up buying five bags that don't work together. The Endless System is four pieces engineered as one — they nest, attach, and adapt so you carry exactly what you need, whether that's a week in Southeast Asia or an afternoon in your own city.</p>
+        </div>
+      </Section>
+
+      {/* Pieces */}
+      <Section>
+        <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: '10px', color: '#8B7355', textTransform: 'uppercase', letterSpacing: '0.2em', marginBottom: '24px' }}>The System</div>
+        <PieceSelector />
+      </Section>
+
+      {/* In the Wild */}
+      <Section bg="rgba(26,21,16,0.3)">
+        <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: '10px', color: '#8B7355', textTransform: 'uppercase', letterSpacing: '0.2em', marginBottom: '16px' }}>In the Wild</div>
+        <h2 style={{ fontFamily: '"Playfair Display", serif', fontSize: '28px', fontWeight: 600, color: '#F5F2ED', margin: '0 0 24px' }}>Tested on the Road</h2>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '20px' }}>
+          {[{ loc: 'Torres del Paine, Chile', story: 'Five days on the W Trek. The pack handled everything.' },
+            { loc: 'Hallstatt, Austria', story: 'The daypack was perfect for day hikes. Light enough to forget.' },
+            { loc: 'Chefchaouen, Morocco', story: 'Every wall is a different shade of blue. The sling was ideal for exploring.' }
+          ].map((item) => (
+            <div key={item.loc} style={{ padding: '20px', borderRadius: '10px', border: '1px solid rgba(245,242,237,0.06)', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: '10px', color: '#8B7355' }}>{item.loc}</div>
+              <p style={{ fontFamily: '"DM Sans", sans-serif', fontSize: '14px', color: '#D4CFC7', lineHeight: 1.6, margin: 0 }}>{item.story}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* Bundle */}
+      <Section>
+        <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: '10px', color: '#8B7355', textTransform: 'uppercase', letterSpacing: '0.2em', marginBottom: '16px' }}>Pricing</div>
+        <h2 style={{ fontFamily: '"Playfair Display", serif', fontSize: '28px', fontWeight: 600, color: '#F5F2ED', margin: '0 0 32px' }}>Individual or System</h2>
+        <BundleComparison />
+      </Section>
+
+      {/* Final CTA */}
+      <Section bg="rgba(26,21,16,0.3)">
+        <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', gap: '16px', alignItems: 'center' }}>
+          <h2 style={{ fontFamily: '"Playfair Display", serif', fontSize: '28px', fontWeight: 600, color: '#F5F2ED', margin: 0 }}>Ready for Every Journey</h2>
+          <p style={{ fontFamily: '"DM Sans", sans-serif', fontSize: '16px', color: '#D4CFC7', lineHeight: 1.7, margin: 0, maxWidth: '500px' }}>The Endless System was designed by travelers, tested on the road, and built to last.</p>
+          <KickstarterCTA source="endless-footer" />
+        </div>
+      </Section>
+    </div>
+  );
+}
