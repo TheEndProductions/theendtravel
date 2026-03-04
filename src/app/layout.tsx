@@ -16,6 +16,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           @media (max-width: 768px) {
             #hero { height: 70svh !important; }
             #hero > div:nth-child(2) { height: 70svh !important; }
+            #hero-headline { padding: 0 20px !important; gap: 4px !important; }
+            #hero-headline p { font-size: 13px !important; max-width: 320px !important; }
+            #hero-headline a { height: 42px !important; padding: 0 20px !important; font-size: 13px !important; }
           }
         `}} />
       </head>
