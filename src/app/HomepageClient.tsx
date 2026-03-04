@@ -1,11 +1,7 @@
 'use client';
 import { useState } from 'react';
-import dynamic from 'next/dynamic';
-import { useCinematicHook } from '@/lib/hooks/useCinematicHook';
 import HomepageEndlessSection from '@/components/endless/HomepageEndlessSection';
 import HeroVideo from '@/components/layout/HeroVideo';
-
-const CinematicHook = dynamic(() => import('@/components/cinematic-hook/CinematicHook'), { ssr: false });
 
 const Section = ({ children, bg, id }: { children: React.ReactNode; bg?: string; id?: string }) => (
   <section id={id} style={{ padding: '100px 24px', background: bg || 'transparent' }}>
@@ -18,20 +14,14 @@ const SectionEyebrow = ({ children }: { children: React.ReactNode }) => (
 );
 
 export default function HomepageClient() {
-  const { shouldShowHook, isFirstVisit, markAsSeen } = useCinematicHook();
-  const [hookDone, setHookDone] = useState(false);
-
-  const handleHookComplete = () => { markAsSeen(); setHookDone(true); };
 
   return (
     <>
-      {shouldShowHook && !hookDone && <CinematicHook onComplete={handleHookComplete} isFirstVisit={isFirstVisit} />}
-
-      <div style={{ opacity: hookDone || !shouldShowHook ? 1 : 0, transition: 'opacity 0.5s ease' }}>
+      <div>
 
         {/* 1. Hero */}
         <section id="hero" style={{ position: 'relative', width: '100vw', height: '70svh', overflow: 'hidden', marginLeft: 'calc(-50vw + 50%)', marginRight: 'calc(-50vw + 50%)' }}>
-            <HeroVideo hookDone={hookDone} />
+            <HeroVideo hookDone={true} />
             <div style={{ position: 'relative', zIndex: 1, height: '70svh', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '20px', maxWidth: '720px', padding: '0 24px' }}>
             <SectionEyebrow>TheEndProductions</SectionEyebrow>
             <h1 style={{ fontFamily: '"Playfair Display", serif', fontSize: 'clamp(28px, 6vw, 64px)', fontWeight: 600, color: '#F5F2ED', margin: 0, lineHeight: 1.1 }}>To See The World<br /><em style={{ fontWeight: 400, color: '#8B7355' }}>& To Find Each Other</em></h1>
