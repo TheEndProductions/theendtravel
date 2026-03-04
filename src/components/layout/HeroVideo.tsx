@@ -1,50 +1,65 @@
 'use client';
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, useCallback } from 'react';
 
 interface Props { hookDone: boolean; }
 
 export default function HeroVideo({ hookDone }: Props) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const [ended, setEnded] = useState(false);
-  const [hasPlayed, setHasPlayed] = useState(false);
 
-  // Play once hook is done
+  // Play once hook finishes
   useEffect(() => {
-    if (hookDone && videoRef.current && !hasPlayed) {
+    if (hookDone && videoRef.current) {
       videoRef.current.currentTime = 0;
       videoRef.current.play().catch(() => {});
-      setHasPlayed(true);
     }
-  }, [hookDone, hasPlayed]);
+  }, [hookDone]);
 
-  // Replay when scrolled back into view
+  // When video ends, pause on last frame
+  const handleEnded = useCallback(() => {
+    if (videoRef.current) {
+      videoRef.current.currentTime = videoRef.current.duration - 0.1;
+      videoRef.current.pause();
+    }
+    setEnded(true);
+  }, []);
+
+  // Observe scroll — replay when scrolled back into view after it ended
   useEffect(() => {
-    if (!hasPlayed) return;
+    const container = containerRef.current;
+    const video = videoRef.current;
+    if (!container || !video) return;
+
+    let wasOutOfView = false;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && videoRef.current && ended) {
-          videoRef.current.currentTime = 0;
-          videoRef.current.play().catch(() => {});
+        if (!entry.isIntersecting) {
+          wasOutOfView = true;
+          video.pause();
+        } else if (entry.isIntersecting && wasOutOfView) {
+          video.currentTime = 0;
+          video.play().catch(() => {});
           setEnded(false);
-        } else if (!entry.isIntersecting && videoRef.current) {
-          videoRef.current.pause();
+          wasOutOfView = false;
         }
       },
       { threshold: 0.3 }
     );
-    const el = videoRef.current;
-    if (el) observer.observe(el);
-    return () => { if (el) observer.unobserve(el); };
-  }, [hasPlayed, ended]);
+
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, [hookDone]);
 
   return (
-    <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', zIndex: 0 }}>
+    <div ref={containerRef} style={{ position: 'absolute', inset: 0, overflow: 'hidden', zIndex: 0 }}>
       <video
         ref={videoRef}
         src="/hero-bg-web.mp4"
         muted
         playsInline
-        onEnded={() => setEnded(true)}
+        onEnded={handleEnded}
         style={{
           position: 'absolute',
           top: 0,
@@ -52,47 +67,9 @@ export default function HeroVideo({ hookDone }: Props) {
           width: '100%',
           height: '100%',
           objectFit: 'cover',
-          opacity: ended ? 0 : 1,
-          transition: 'opacity 1s ease',
         }}
       />
-      <LastFrameCapture videoRef={videoRef} show={ended} />
       <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.6) 60%, rgba(10,10,10,0.95) 100%)' }} />
     </div>
-  );
-}
-
-function LastFrameCapture({ videoRef, show }: { videoRef: React.RefObject<HTMLVideoElement>; show: boolean }) {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [captured, setCaptured] = useState(false);
-
-  useEffect(() => {
-    if (show && videoRef.current && canvasRef.current) {
-      const video = videoRef.current;
-      const canvas = canvasRef.current;
-      canvas.width = video.videoWidth;
-      canvas.height = video.videoHeight;
-      const ctx = canvas.getContext('2d');
-      if (ctx) {
-        ctx.drawImage(video, 0, 0);
-        setCaptured(true);
-      }
-    }
-  }, [show, videoRef]);
-
-  return (
-    <canvas
-      ref={canvasRef}
-      style={{
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        objectFit: 'cover',
-        opacity: show && captured ? 1 : 0,
-        transition: 'opacity 1s ease',
-      }}
-    />
   );
 }
