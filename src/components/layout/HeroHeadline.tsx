@@ -50,7 +50,7 @@ export default function HeroHeadline() {
         TheEndProductions
       </div>
       <p style={{ fontFamily: '"DM Sans", sans-serif', fontSize: 'clamp(14px, 2.5vw, 17px)', color: '#D4CFC7', lineHeight: 1.7, margin: 0, maxWidth: '540px', marginTop: '20px', ...subtitle }}>
-        Pack your bags, do what you love & seek what\u2019s meaningful all the way to The End.
+        Pack your bags, do what you love & seek what is meaningful all the way to The End.
       </p>
       <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginTop: '16px', justifyContent: 'center', ...buttons }}>
         <a href="/journey-map" style={{ display: 'inline-flex', alignItems: 'center', height: '48px', padding: '0 28px', borderRadius: '6px', background: '#C4530A', color: '#F5F2ED', fontSize: '15px', fontFamily: '"DM Sans", sans-serif', fontWeight: 600, textDecoration: 'none' }}>Explore the Map →</a>
