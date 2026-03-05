@@ -30,7 +30,7 @@ export default function HomepageClient() {
         <Section bg="rgba(26,21,16,0.3)">
           <div style={{ maxWidth: '640px', margin: '0 auto', textAlign: 'center', display: 'flex', flexDirection: 'column', gap: '16px', alignItems: 'center' }}>
             <SectionEyebrow>Our Mission</SectionEyebrow>
-            <h2 style={{ fontFamily: '"Playfair Display", serif', fontSize: '28px', fontWeight: 600, color: '#F5F2ED', margin: 0 }}>We believe the best stories are found, not scripted.</h2>
+            <h2 style={{ fontFamily: '"Playfair Display", serif', fontSize: '28px', fontWeight: 600, color: '#F5F2ED', margin: 0 }}>Our foundation rests in understanding the common bond we all share, humanity.</h2>
             <p style={{ fontFamily: '"DM Sans", sans-serif', fontSize: '16px', color: '#D4CFC7', lineHeight: 1.7, margin: 0 }}>Every film, every product, every project begins with a simple question: what happens when you show up with an open heart? The End Productions exists at the intersection of adventure, storytelling, and the quiet moments that change everything.</p>
           </div>
         </Section>
