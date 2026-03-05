@@ -4,8 +4,8 @@ export default function StickyLogo() {
   return (
     <a href="/" aria-label="Home" style={{
       position: 'fixed',
-      top: '18px',
-      left: '20px',
+      top: '10px',
+      left: '10px',
       zIndex: 10001,
       display: 'block',
       opacity: 0.85,
