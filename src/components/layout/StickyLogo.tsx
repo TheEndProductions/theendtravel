@@ -14,7 +14,7 @@ export default function StickyLogo() {
     onMouseEnter={(e) => { (e.target as HTMLElement).style.opacity = '1'; }}
     onMouseLeave={(e) => { (e.target as HTMLElement).style.opacity = '0.85'; }}
     >
-      <img src="/logo.png" alt="TheEndProductions" style={{ height: '60px', width: 'auto', display: 'block' }} />
+      <img src="/logo.png" alt="TheEndProductions" style={{ height: '180px', width: 'auto', display: 'block' }} />
     </a>
   );
 }
