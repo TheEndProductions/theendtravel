@@ -1,6 +1,7 @@
 'use client';
 import NavMenu from '@/components/layout/NavMenu';
 import StickyLogo from '@/components/layout/StickyLogo';
+import StickyTheEnd from '@/components/layout/StickyTheEnd';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -29,6 +30,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body style={{ margin: 0, padding: 0, background: '#0A0A0A', color: '#F5F2ED', fontFamily: '"DM Sans", system-ui, sans-serif', WebkitFontSmoothing: 'antialiased', overflowX: 'hidden' }}>
         <StickyLogo />
+        <StickyTheEnd />
         <NavMenu />
         <div id="main-content">{children}</div>
       </body>
