@@ -1,15 +1,12 @@
 'use client';
-
 import { useState, useEffect } from 'react';
 
 export default function StickyLogo() {
-  const [isMobile, setIsMobile] = useState(false);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth < 768);
-    check();
-    window.addEventListener('resize', check);
-    return () => window.removeEventListener('resize', check);
+    const timer = setTimeout(() => setVisible(true), 600);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -19,13 +16,10 @@ export default function StickyLogo() {
       left: '12px',
       zIndex: 10001,
       display: 'block',
-      opacity: 0.85,
-      transition: 'opacity 0.2s',
-    }}
-    onMouseEnter={(e) => { (e.target as HTMLElement).style.opacity = '1'; }}
-    onMouseLeave={(e) => { (e.target as HTMLElement).style.opacity = '0.85'; }}
-    >
-      <img src="/logo.png" alt="TheEndProductions" style={{ height: isMobile ? '30px' : '200px', width: 'auto', display: 'block' }} />
+      opacity: visible ? 1 : 0,
+      transition: 'opacity 0.6s ease',
+    }}>
+      <img src="/logo-hand.png" alt="TheEndProductions" style={{ height: 'var(--logo-height)', width: 'auto', display: 'block' }} />
     </a>
   );
 }
