@@ -21,7 +21,7 @@ export default function StickyTheEnd() {
       pointerEvents: 'none',
     }}>
       <a href="/" style={{ pointerEvents: 'auto' }} aria-label="Home">
-        <img src="/logo-theend.png" alt="The End" style={{ height: '24px', width: 'auto', display: 'block' }} />
+        <img src="/logo-theend.png" alt="The End" style={{ height: 'var(--theend-height)', width: 'auto', display: 'block' }} />
       </a>
     </div>
   );
