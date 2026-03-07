@@ -64,17 +64,20 @@ export default function HomepageClient() {
         </Section>
 
         {/* 5. Journey Map teaser */}
-        <Section bg="rgba(26,21,16,0.3)">
-          <div style={{ display: 'flex', gap: '48px', flexWrap: 'wrap', alignItems: 'center' }}>
-            <div style={{ flex: '1 1 400px', aspectRatio: '16/10', borderRadius: '12px', overflow: 'hidden', background: '#0A0A0A' }}><GlobePreview /></div>
-            <div style={{ flex: '1 1 320px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
+        <section style={{ position: 'relative', width: '100vw', minHeight: '80vh', overflow: 'hidden', marginLeft: 'calc(-50vw + 50%)', marginRight: 'calc(-50vw + 50%)' }}>
+          <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
+            <GlobePreview />
+          </div>
+          <div style={{ position: 'absolute', inset: 0, zIndex: 1, background: 'linear-gradient(to right, rgba(10,10,10,0.75) 0%, rgba(10,10,10,0.3) 50%, transparent 100%)' }} />
+          <div style={{ position: 'relative', zIndex: 2, display: 'flex', alignItems: 'center', minHeight: '80vh', padding: '60px 40px' }}>
+            <div style={{ maxWidth: '440px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
               <SectionEyebrow>Journey Map</SectionEyebrow>
               <h2 style={{ fontFamily: '"Playfair Display", serif', fontSize: '28px', fontWeight: 600, color: '#F5F2ED', margin: 0 }}>Every Pin Is a Story</h2>
               <p style={{ fontFamily: '"DM Sans", sans-serif', fontSize: '15px', color: '#D4CFC7', lineHeight: 1.65, margin: 0 }}>An interactive globe with every film location, journal entry, gear sighting, and humanitarian project. Community members can add their own stories too.</p>
               <a href="/journey-map" style={{ display: 'inline-flex', alignSelf: 'flex-start', alignItems: 'center', height: '44px', padding: '0 24px', borderRadius: '6px', background: '#C4530A', color: '#F5F2ED', fontSize: '14px', fontFamily: '"DM Sans", sans-serif', fontWeight: 600, textDecoration: 'none' }}>Explore the Globe →</a>
             </div>
           </div>
-        </Section>
+        </section>
 
         {/* 6. Journal */}
         <Section>

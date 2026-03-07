@@ -8,7 +8,7 @@ import ShootingStars from './shared/ShootingStars';
 
 export default function GlobePreview() {
   return (
-    <Canvas camera={{ position: [0, 0, 3.5], fov: 45 }} style={{ width: '100%', height: '100%', borderRadius: '12px' }} gl={{ antialias: true, alpha: true }}>
+    <Canvas camera={{ position: [0, 0, 3.5], fov: 45 }} style={{ width: '100%', height: '100%' }} gl={{ antialias: true, alpha: true }}>
       <Stars radius={100} depth={50} count={1500} factor={5} saturation={0} fade speed={0.3} />
       <ambientLight intensity={0.15} />
       <directionalLight position={[5, 3, 5]} intensity={0.8} />
