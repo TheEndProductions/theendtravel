@@ -1,8 +1,11 @@
 'use client';
 import { useState, useEffect } from 'react';
 import HomepageEndlessSection from '@/components/endless/HomepageEndlessSection';
+import dynamic from 'next/dynamic';
 import HeroVideo from '@/components/layout/HeroVideo';
 import HeroHeadline from '@/components/layout/HeroHeadline';
+
+const GlobePreview = dynamic(() => import('@/components/globe/GlobePreview'), { ssr: false });
 
 const Section = ({ children, bg, id }: { children: React.ReactNode; bg?: string; id?: string }) => (
   <section id={id} style={{ padding: '100px 24px', background: bg || 'transparent' }}>
@@ -63,7 +66,7 @@ export default function HomepageClient() {
         {/* 5. Journey Map teaser */}
         <Section bg="rgba(26,21,16,0.3)">
           <div style={{ display: 'flex', gap: '48px', flexWrap: 'wrap', alignItems: 'center' }}>
-            <div style={{ flex: '1 1 400px', aspectRatio: '16/10', borderRadius: '12px', background: 'linear-gradient(135deg, #0A0A0A 0%, #1a1a2e 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '13px', color: 'rgba(245,242,237,0.3)', fontFamily: '"JetBrains Mono", monospace' }}>[GLOBE PREVIEW]</div>
+            <div style={{ flex: '1 1 400px', aspectRatio: '16/10', borderRadius: '12px', overflow: 'hidden', background: '#0A0A0A' }}><GlobePreview /></div>
             <div style={{ flex: '1 1 320px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
               <SectionEyebrow>Journey Map</SectionEyebrow>
               <h2 style={{ fontFamily: '"Playfair Display", serif', fontSize: '28px', fontWeight: 600, color: '#F5F2ED', margin: 0 }}>Every Pin Is a Story</h2>
