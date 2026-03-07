@@ -1,7 +1,11 @@
 'use client';
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
 export default function StickyLogo() {
+  const pathname = usePathname();
+  if (pathname === '/journey-map') return null;
+
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {

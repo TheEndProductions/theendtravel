@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 
 const NAV_LINKS = [
   { label: 'Home', href: '/' },
@@ -15,6 +16,9 @@ const NAV_LINKS = [
 ];
 
 export default function NavMenu() {
+  const pathname = usePathname();
+  if (pathname === '/journey-map') return null;
+
   const [open, setOpen] = useState(false);
 
   return (
