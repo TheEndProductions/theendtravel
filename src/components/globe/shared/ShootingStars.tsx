@@ -3,93 +3,94 @@ import { useRef, useMemo } from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 
-interface Star {
-  position: THREE.Vector3;
-  velocity: THREE.Vector3;
-  life: number;
-  maxLife: number;
-  active: boolean;
-}
-
-export default function ShootingStars({ count = 3 }: { count?: number }) {
-  const meshRef = useRef<THREE.InstancedMesh>(null);
-  const dummy = useMemo(() => new THREE.Object3D(), []);
-  const nextSpawn = useRef(Math.random() * 3 + 1);
+export default function ShootingStars({ count = 5 }: { count?: number }) {
+  const groupRef = useRef<THREE.Group>(null);
+  const stars = useRef<{
+    mesh: THREE.Mesh | null;
+    active: boolean;
+    life: number;
+    maxLife: number;
+    speed: number;
+    dir: THREE.Vector3;
+  }[]>([]);
+  const nextSpawn = useRef(1);
   const elapsed = useRef(0);
 
-  const stars = useMemo<Star[]>(() => {
-    return Array.from({ length: count }, () => ({
-      position: new THREE.Vector3(),
-      velocity: new THREE.Vector3(),
+  const geometries = useMemo(() => {
+    return Array.from({ length: count }, (_, i) => ({
+      id: i,
+      active: false,
       life: 0,
       maxLife: 0,
-      active: false,
+      speed: 0,
+      dir: new THREE.Vector3(),
     }));
   }, [count]);
 
-  const spawnStar = (star: Star) => {
-    const angle = Math.random() * Math.PI * 2;
-    const y = (Math.random() - 0.5) * 8;
-    const radius = 6 + Math.random() * 4;
-    star.position.set(
-      Math.cos(angle) * radius,
-      y,
-      Math.sin(angle) * radius
-    );
-    const speed = 3 + Math.random() * 4;
-    const dir = new THREE.Vector3(
-      -Math.cos(angle) + (Math.random() - 0.5) * 0.5,
-      (Math.random() - 0.5) * 0.3,
-      -Math.sin(angle) + (Math.random() - 0.5) * 0.5
-    ).normalize();
-    star.velocity.copy(dir).multiplyScalar(speed);
-    star.life = 0;
-    star.maxLife = 0.4 + Math.random() * 0.6;
-    star.active = true;
-  };
-
   useFrame((_, delta) => {
-    if (!meshRef.current) return;
+    if (!groupRef.current) return;
     elapsed.current += delta;
 
+    const children = groupRef.current.children as THREE.Mesh[];
+
+    // Spawn new star
     if (elapsed.current >= nextSpawn.current) {
-      const inactive = stars.find((s) => !s.active);
-      if (inactive) spawnStar(inactive);
-      nextSpawn.current = elapsed.current + 2 + Math.random() * 5;
+      const inactive = geometries.find((g) => !g.active);
+      if (inactive && children[inactive.id]) {
+        const mesh = children[inactive.id];
+        // Start from a random edge position
+        const side = Math.random() > 0.5 ? 1 : -1;
+        const y = (Math.random() - 0.3) * 6;
+        mesh.position.set(side * (4 + Math.random() * 3), y, -2 + Math.random() * 2);
+        
+        inactive.dir.set(-side * (0.8 + Math.random() * 0.4), -0.2 - Math.random() * 0.3, 0).normalize();
+        inactive.speed = 8 + Math.random() * 6;
+        inactive.life = 0;
+        inactive.maxLife = 0.5 + Math.random() * 0.5;
+        inactive.active = true;
+      }
+      nextSpawn.current = elapsed.current + 1.5 + Math.random() * 3;
     }
 
-    stars.forEach((star, i) => {
-      if (star.active) {
-        star.life += delta;
-        if (star.life >= star.maxLife) {
-          star.active = false;
+    // Update stars
+    geometries.forEach((g, i) => {
+      const mesh = children[i];
+      if (!mesh) return;
+
+      if (g.active) {
+        g.life += delta;
+        if (g.life >= g.maxLife) {
+          g.active = false;
+          mesh.scale.set(0, 0, 0);
         } else {
-          star.position.addScaledVector(star.velocity, delta);
+          const progress = g.life / g.maxLife;
+          const fade = progress < 0.15 ? progress / 0.15 : Math.max(0, 1 - (progress - 0.15) / 0.85);
+          
+          mesh.position.addScaledVector(g.dir, g.speed * delta);
+          
+          // Elongate in direction of travel
+          const length = 0.15 + fade * 0.25;
+          const width = 0.01 + fade * 0.015;
+          mesh.scale.set(length, width, width);
+          mesh.lookAt(mesh.position.clone().add(g.dir));
+          
+          const mat = mesh.material as THREE.MeshBasicMaterial;
+          mat.opacity = fade * 0.95;
         }
-      }
-
-      if (star.active) {
-        const progress = star.life / star.maxLife;
-        const fade = progress < 0.2 ? progress / 0.2 : 1 - (progress - 0.2) / 0.8;
-        const scale = 0.02 + fade * 0.03;
-        dummy.position.copy(star.position);
-        dummy.scale.set(scale, scale, scale * 3);
-        dummy.lookAt(star.position.clone().add(star.velocity));
       } else {
-        dummy.position.set(0, 100, 0);
-        dummy.scale.set(0, 0, 0);
+        mesh.scale.set(0, 0, 0);
       }
-      dummy.updateMatrix();
-      meshRef.current!.setMatrixAt(i, dummy.matrix);
     });
-
-    meshRef.current.instanceMatrix.needsUpdate = true;
   });
 
   return (
-    <instancedMesh ref={meshRef} args={[undefined, undefined, count]}>
-      <sphereGeometry args={[1, 4, 4]} />
-      <meshBasicMaterial color="#F5F2ED" transparent opacity={0.9} />
-    </instancedMesh>
+    <group ref={groupRef}>
+      {geometries.map((g) => (
+        <mesh key={g.id} scale={[0, 0, 0]}>
+          <boxGeometry args={[1, 1, 1]} />
+          <meshBasicMaterial color="#F5F2ED" transparent opacity={0} />
+        </mesh>
+      ))}
+    </group>
   );
 }
