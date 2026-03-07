@@ -4,6 +4,7 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { Stars } from '@react-three/drei';
 import * as THREE from 'three';
 import Earth from './shared/Earth';
+import ShootingStars from './shared/ShootingStars';
 import Atmosphere from './shared/Atmosphere';
 
 function SpinningGlobe() {
@@ -25,6 +26,7 @@ export default function GlobePreview() {
       <ambientLight intensity={0.15} />
       <directionalLight position={[5, 3, 5]} intensity={0.8} />
       <SpinningGlobe />
+      <ShootingStars count={3} />
     </Canvas>
   );
 }

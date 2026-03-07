@@ -7,6 +7,7 @@ import MarkerLayer from './MarkerLayer';
 import ArcLayer from './ArcLayer';
 import CameraController from './CameraController';
 import { useGlobe } from './GlobeProvider';
+import ShootingStars from './shared/ShootingStars';
 
 export default function GlobeCanvas() {
   const { filteredPins, pins } = useGlobe();
@@ -21,6 +22,7 @@ export default function GlobeCanvas() {
       <MarkerLayer pins={filteredPins} />
       <ArcLayer pins={pins} />
       <CameraController />
+      <ShootingStars count={5} />
     </Canvas>
   );
 }
