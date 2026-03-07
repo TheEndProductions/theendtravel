@@ -19,7 +19,7 @@ export default function StickyLogoDance() {
       opacity: visible ? 1 : 0,
       transition: 'opacity 0.6s ease',
     }}>
-      <img src="/logo-dance.png" alt="TheEndProductions" style={{ height: 'var(--logo-height)', width: 'auto', display: 'block' }} />
+      <img src="/logo-dance.png" alt="TheEndProductions" style={{ height: 'var(--dance-height)', width: 'auto', display: 'block' }} />
     </a>
   );
 }
