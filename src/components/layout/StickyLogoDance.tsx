@@ -12,7 +12,7 @@ export default function StickyLogoDance() {
   return (
     <a href="/" aria-label="Home" style={{
       position: 'fixed',
-      top: '12px',
+      top: '4px',
       right: '60px',
       zIndex: 10001,
       display: 'block',
