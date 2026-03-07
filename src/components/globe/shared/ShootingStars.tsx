@@ -19,6 +19,8 @@ export default function ShootingStars({ count = 5 }: { count?: number }) {
 
   const nextSpawn = useRef(1);
   const elapsed = useRef(0);
+  const quat = useMemo(() => new THREE.Quaternion(), []);
+  const up = useMemo(() => new THREE.Vector3(0, 1, 0), []);
 
   useFrame((_, delta) => {
     if (!groupRef.current) return;
@@ -31,21 +33,17 @@ export default function ShootingStars({ count = 5 }: { count?: number }) {
       if (inactive && children[inactive.id]) {
         const mesh = children[inactive.id];
 
-        // Random angle for the shooting direction (diagonal, mostly downward)
-        const angle = (-Math.PI * 0.15) - Math.random() * Math.PI * 0.35; // -25 to -90 degrees
-        const sideAngle = (Math.random() - 0.5) * 0.3; // slight z variation
+        // Direction: mostly downward-diagonal
+        const xDir = 0.3 + Math.random() * 0.5;
+        const yDir = -(0.6 + Math.random() * 0.4);
+        inactive.dir.set(xDir, yDir, 0).normalize();
 
-        inactive.dir.set(
-          Math.cos(angle),
-          Math.sin(angle),
-          sideAngle
-        ).normalize();
-
-        // Start from upper area, random position
-        const startX = (Math.random() - 0.3) * 8;
-        const startY = 3 + Math.random() * 3;
-        const startZ = -1 + Math.random() * 1;
-        mesh.position.set(startX, startY, startZ);
+        // Start from upper-left area
+        mesh.position.set(
+          -4 - Math.random() * 3,
+          3 + Math.random() * 3,
+          -1 + Math.random() * 1
+        );
 
         inactive.speed = 10 + Math.random() * 8;
         inactive.life = 0;
@@ -70,14 +68,14 @@ export default function ShootingStars({ count = 5 }: { count?: number }) {
 
           mesh.position.addScaledVector(g.dir, g.speed * delta);
 
-          // Elongate trail in direction of travel
+          // Scale: thin and long
           const trailLength = 0.2 + fade * 0.3;
           const trailWidth = 0.008 + fade * 0.012;
-          mesh.scale.set(trailLength, trailWidth, trailWidth);
+          mesh.scale.set(trailWidth, trailWidth, trailLength);
 
-          // Align mesh with travel direction
-          const target = mesh.position.clone().add(g.dir);
-          mesh.lookAt(target);
+          // Rotate to align Z-axis (box length) with direction
+          quat.setFromUnitVectors(new THREE.Vector3(0, 0, 1), g.dir);
+          mesh.quaternion.copy(quat);
 
           const mat = mesh.material as THREE.MeshBasicMaterial;
           mat.opacity = fade * 0.9;
