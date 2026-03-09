@@ -79,7 +79,17 @@ export default function HomepageClient() {
           </div>
         </section>
 
-        {/* 6. Journal */}
+        {/* 6. Hand of Humanity */}
+        <Section>
+          <div style={{ maxWidth: '640px', margin: '0 auto', textAlign: 'center', display: 'flex', flexDirection: 'column', gap: '16px', alignItems: 'center' }}>
+            <SectionEyebrow>Hand of Humanity</SectionEyebrow>
+            <h2 style={{ fontFamily: '"Playfair Display", serif', fontSize: '28px', fontWeight: 600, color: '#F5F2ED', margin: 0 }}>Every Journey Gives Back</h2>
+            <p style={{ fontFamily: '"DM Sans", sans-serif', fontSize: '16px', color: '#D4CFC7', lineHeight: 1.7, margin: 0 }}>A portion of every purchase funds clean water initiatives, school rebuilds, and youth photography programs around the world. Travel should leave places better than we found them.</p>
+            <a href="/hand-of-humanity" style={{ display: 'inline-flex', alignItems: 'center', height: '44px', padding: '0 24px', borderRadius: '6px', border: '1px solid rgba(245,242,237,0.15)', color: '#F5F2ED', fontSize: '14px', fontFamily: '"DM Sans", sans-serif', textDecoration: 'none' }}>See Our Projects →</a>
+          </div>
+        </Section>
+
+        {/* 7. Journal */}
         <Section>
           <SectionEyebrow>Journal</SectionEyebrow>
           <h2 style={{ fontFamily: '"Playfair Display", serif', fontSize: '28px', fontWeight: 600, color: '#F5F2ED', margin: 0, marginBottom: '24px' }}>Words From The Road</h2>
@@ -91,16 +101,6 @@ export default function HomepageClient() {
                 <p style={{ fontFamily: '"DM Sans", sans-serif', fontSize: '14px', color: 'rgba(212,207,199,0.6)', lineHeight: 1.6, margin: 0 }}>A story from the road, waiting to be read.</p>
               </div>
             ))}
-          </div>
-        </Section>
-
-        {/* 7. Hand of Humanity */}
-        <Section>
-          <div style={{ maxWidth: '640px', margin: '0 auto', textAlign: 'center', display: 'flex', flexDirection: 'column', gap: '16px', alignItems: 'center' }}>
-            <SectionEyebrow>Hand of Humanity</SectionEyebrow>
-            <h2 style={{ fontFamily: '"Playfair Display", serif', fontSize: '28px', fontWeight: 600, color: '#F5F2ED', margin: 0 }}>Every Journey Gives Back</h2>
-            <p style={{ fontFamily: '"DM Sans", sans-serif', fontSize: '16px', color: '#D4CFC7', lineHeight: 1.7, margin: 0 }}>A portion of every purchase funds clean water initiatives, school rebuilds, and youth photography programs around the world. Travel should leave places better than we found them.</p>
-            <a href="/hand-of-humanity" style={{ display: 'inline-flex', alignItems: 'center', height: '44px', padding: '0 24px', borderRadius: '6px', border: '1px solid rgba(245,242,237,0.15)', color: '#F5F2ED', fontSize: '14px', fontFamily: '"DM Sans", sans-serif', textDecoration: 'none' }}>See Our Projects →</a>
           </div>
         </Section>
 
