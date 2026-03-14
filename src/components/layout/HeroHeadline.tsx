@@ -31,7 +31,6 @@ export default function HeroHeadline() {
   const line1 = fadeIn(0.5);
   const amp = fadeIn(1.2);
   const line2 = fadeIn(1.7);
-  const brand = fadeIn(2.8, 0.6);
   const subtitle = fadeIn(3.8, 0.8);
   const buttons = fadeIn(4.8, 0.8);
 
@@ -46,9 +45,7 @@ export default function HeroHeadline() {
       <div style={{ fontFamily: '"Playfair Display", serif', fontSize: 'clamp(24px, 7vw, 56px)', fontWeight: 600, color: '#F5F2ED', lineHeight: 1.15, letterSpacing: '-0.01em', ...line2 }}>
         To Find Each Other
       </div>
-      <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: '11px', color: '#F5F2ED', letterSpacing: '0.25em', textTransform: 'uppercase', marginTop: '16px', ...brand }}>
-        TheEndProductions
-      </div>
+
       <p style={{ fontFamily: '"DM Sans", sans-serif', fontSize: 'clamp(14px, 2.5vw, 17px)', color: '#D4CFC7', lineHeight: 1.7, margin: 0, maxWidth: '540px', marginTop: '20px', ...subtitle }}>
         Pack your bags, do what you love & seek what is meaningful all the way to The End.
       </p>
