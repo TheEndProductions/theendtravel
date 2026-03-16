@@ -11,7 +11,7 @@ import { CATEGORY_COLORS } from '@/lib/globe/constants';
 interface MarkerLayerProps { pins: GlobePin[]; }
 
 export default function MarkerLayer({ pins }: MarkerLayerProps) {
-  const { cameraZoom, selectPin, hoverPin } = useGlobe();
+  const { cameraZoom, selectPin, hoverPin, setCameraZoom } = useGlobe();
   const meshRefs = useRef<Record<string, THREE.InstancedMesh>>({});
   const timeRef = useRef(0);
 
