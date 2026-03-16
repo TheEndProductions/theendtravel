@@ -39,7 +39,7 @@ export default function MarkerLayer({ pins }: MarkerLayerProps) {
             key={pin.id}
             position={pos}
             scale={[0.015 * pulse, 0.015 * pulse, 0.015 * pulse]}
-            onClick={(e) => { e.stopPropagation(); selectPin(pin); }}
+            onClick={(e) => { e.stopPropagation(); selectCluster([]); selectPin(pin); }}
             onPointerOver={(e) => { e.stopPropagation(); hoverPin(pin); document.body.style.cursor = 'pointer'; }}
             onPointerOut={() => { hoverPin(null); document.body.style.cursor = 'default'; }}
           >
@@ -61,7 +61,7 @@ export default function MarkerLayer({ pins }: MarkerLayerProps) {
             key={`cluster-${f.id}`}
             position={pos}
             scale={[size * pulse, size * pulse, size * pulse]}
-            onClick={(e) => { e.stopPropagation(); const leaves = clusterIndex.getLeaves(f.id, Infinity); const clusterPins = leaves.map((l: any) => l.properties.pin); selectCluster(clusterPins); }}
+            onClick={(e) => { e.stopPropagation(); const leaves = clusterIndex.getLeaves(f.id, Infinity); const clusterPins = leaves.map((l: any) => l.properties.pin); selectCluster(clusterPins); setCameraZoom(Math.max(cameraZoom - 0.6, 1.5)); }}
             onPointerOver={(e) => { e.stopPropagation(); document.body.style.cursor = 'pointer'; }}
             onPointerOut={() => { document.body.style.cursor = 'default'; }}
           >
