@@ -5,6 +5,7 @@ import GlobeProvider from '@/components/globe/GlobeProvider';
 import GlobeHeader from '@/components/globe/GlobeHeader';
 import GlobeStats from '@/components/globe/GlobeStats';
 import PinDetailPanel from '@/components/globe/PinDetailPanel';
+import ClusterPanel from '@/components/globe/ClusterPanel';
 
 const GlobeCanvas = dynamic(() => import('@/components/globe/GlobeCanvas'), { ssr: false });
 
@@ -25,6 +26,7 @@ export default async function JourneyMapPage() {
         <div style={{ flex: 1, position: 'relative' }}>
           <GlobeCanvas />
           <PinDetailPanel />
+          <ClusterPanel />
         </div>
         <GlobeStats />
       </div>

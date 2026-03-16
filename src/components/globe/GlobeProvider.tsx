@@ -15,6 +15,8 @@ interface GlobeContextType {
   selectPin: (p: GlobePin | null) => void;
   hoverPin: (p: GlobePin | null) => void;
   setCameraZoom: (z: number) => void;
+  selectedClusterPins: GlobePin[];
+  selectCluster: (pins: GlobePin[]) => void;
 }
 
 const GlobeContext = createContext<GlobeContextType | null>(null);
@@ -30,6 +32,7 @@ export default function GlobeProvider({ pins: allPins, children }: { pins: Globe
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedPin, setSelectedPin] = useState<GlobePin | null>(null);
   const [hoveredPin, setHoveredPin] = useState<GlobePin | null>(null);
+  const [selectedClusterPins, setSelectedClusterPins] = useState<GlobePin[]>([]);
   const [cameraZoom, setCameraZoom] = useState(2.8);
 
   const filteredPins = useMemo(() => {
@@ -46,11 +49,12 @@ export default function GlobeProvider({ pins: allPins, children }: { pins: Globe
   const setSearch = useCallback((q: string) => setSearchQuery(q), []);
   const selectPin = useCallback((p: GlobePin | null) => setSelectedPin(p), []);
   const hoverPin = useCallback((p: GlobePin | null) => setHoveredPin(p), []);
+  const selectCluster = useCallback((pins: GlobePin[]) => { setSelectedClusterPins(pins); setSelectedPin(null); }, []);
 
   const value = useMemo(() => ({
-    pins: allPins, filteredPins, activeFilter, searchQuery, selectedPin, hoveredPin, cameraZoom,
-    setFilter, setSearch, selectPin, hoverPin, setCameraZoom,
-  }), [allPins, filteredPins, activeFilter, searchQuery, selectedPin, hoveredPin, cameraZoom, setFilter, setSearch, selectPin, hoverPin]);
+    pins: allPins, filteredPins, activeFilter, searchQuery, selectedPin, hoveredPin, cameraZoom, selectedClusterPins,
+    setFilter, setSearch, selectPin, hoverPin, setCameraZoom, selectCluster,
+  }), [allPins, filteredPins, activeFilter, searchQuery, selectedPin, hoveredPin, cameraZoom, selectedClusterPins, setFilter, setSearch, selectPin, hoverPin, selectCluster]);
 
   return <GlobeContext.Provider value={value}>{children}</GlobeContext.Provider>;
 }

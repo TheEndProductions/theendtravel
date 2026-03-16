@@ -11,7 +11,7 @@ import { CATEGORY_COLORS } from '@/lib/globe/constants';
 interface MarkerLayerProps { pins: GlobePin[]; }
 
 export default function MarkerLayer({ pins }: MarkerLayerProps) {
-  const { cameraZoom, selectPin, hoverPin, setCameraZoom } = useGlobe();
+  const { cameraZoom, selectPin, hoverPin, setCameraZoom, selectCluster } = useGlobe();
   const meshRefs = useRef<Record<string, THREE.InstancedMesh>>({});
   const timeRef = useRef(0);
 
@@ -61,7 +61,7 @@ export default function MarkerLayer({ pins }: MarkerLayerProps) {
             key={`cluster-${f.id}`}
             position={pos}
             scale={[size * pulse, size * pulse, size * pulse]}
-            onClick={(e) => { e.stopPropagation(); setCameraZoom(Math.max(cameraZoom - 0.5, 1.5)); }}
+            onClick={(e) => { e.stopPropagation(); const leaves = clusterIndex.getLeaves(f.id, Infinity); const clusterPins = leaves.map((l: any) => l.properties.pin); selectCluster(clusterPins); }}
             onPointerOver={(e) => { e.stopPropagation(); document.body.style.cursor = 'pointer'; }}
             onPointerOut={() => { document.body.style.cursor = 'default'; }}
           >
