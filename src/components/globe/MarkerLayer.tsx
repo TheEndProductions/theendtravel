@@ -53,12 +53,20 @@ export default function MarkerLayer({ pins }: MarkerLayerProps) {
       {clusterFeatures.map((f) => {
         if (f.type !== 'cluster') return null;
         const pos = latLngToVector3(f.latitude, f.longitude, 0.01);
-        const size = 0.02 + Math.min(f.count / 50, 0.03);
+        const size = 0.015 + Math.min(f.count / 80, 0.015);
+        const pulse = 1 + Math.sin(timeRef.current * 1.5) * 0.1;
 
         return (
-          <mesh key={`cluster-${f.id}`} position={pos} scale={[size, size, size]}>
+          <mesh
+            key={`cluster-${f.id}`}
+            position={pos}
+            scale={[size * pulse, size * pulse, size * pulse]}
+            onClick={(e) => { e.stopPropagation(); setCameraZoom(Math.max(cameraZoom - 0.5, 1.5)); }}
+            onPointerOver={(e) => { e.stopPropagation(); document.body.style.cursor = 'pointer'; }}
+            onPointerOut={() => { document.body.style.cursor = 'default'; }}
+          >
             <sphereGeometry args={[1, 12, 12]} />
-            <meshBasicMaterial color="#8B7355" transparent opacity={0.7} />
+            <meshBasicMaterial color="#C4530A" transparent opacity={0.6} />
           </mesh>
         );
       })}
