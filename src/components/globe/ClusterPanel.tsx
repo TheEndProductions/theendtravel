@@ -1,33 +1,31 @@
 'use client';
 import { useGlobe } from './GlobeProvider';
 import { CATEGORY_COLORS, CATEGORY_LABELS } from '@/lib/globe/constants';
+import type { GlobePin } from '@/types/globe';
 
-export default function ClusterPanel() {
-  const { selectedClusterPins, selectCluster, selectPin } = useGlobe();
-  if (selectedClusterPins.length === 0) return null;
-
+function PinList({ pins, title, onPinClick, onClose }: { pins: GlobePin[]; title: string; onPinClick: (pin: GlobePin) => void; onClose: () => void }) {
   return (
     <div style={{
       position: 'absolute', top: 0, right: 0, width: '380px', height: '100%',
       background: 'rgba(10,10,10,0.95)', borderLeft: '1px solid rgba(245,242,237,0.08)',
       overflowY: 'auto', zIndex: 10, display: 'flex', flexDirection: 'column',
-    }} role="dialog" aria-label="Cluster details">
+    }} role="dialog" aria-label={title}>
       <div style={{ padding: '24px', borderBottom: '1px solid rgba(245,242,237,0.06)' }}>
         <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: '10px', color: '#C4530A', textTransform: 'uppercase', letterSpacing: '0.2em', marginBottom: '8px' }}>
-          {selectedClusterPins.length} Stories in This Area
+          {pins.length} {pins.length === 1 ? 'Story' : 'Stories'}
         </div>
         <h2 style={{ fontFamily: '"Playfair Display", serif', fontSize: '22px', fontWeight: 600, color: '#F5F2ED', margin: 0 }}>
-          Nearby Pins
+          {title}
         </h2>
       </div>
 
       <div style={{ padding: '12px', display: 'flex', flexDirection: 'column', gap: '2px', flex: 1 }}>
-        {selectedClusterPins.map((pin) => {
+        {pins.map((pin) => {
           const color = CATEGORY_COLORS[pin.category] || '#F5F2ED';
           return (
             <button
               key={pin.id}
-              onClick={() => { selectCluster([]); selectPin(pin); }}
+              onClick={() => onPinClick(pin)}
               style={{
                 display: 'flex', alignItems: 'flex-start', gap: '12px',
                 padding: '14px 12px', borderRadius: '8px', border: 'none',
@@ -58,7 +56,7 @@ export default function ClusterPanel() {
       </div>
 
       <button
-        onClick={() => selectCluster([])}
+        onClick={onClose}
         style={{
           position: 'absolute', top: '12px', right: '12px', width: '32px', height: '32px',
           borderRadius: '50%', border: 'none', background: 'rgba(10,10,10,0.7)',
@@ -69,4 +67,38 @@ export default function ClusterPanel() {
       >×</button>
     </div>
   );
+}
+
+export default function ClusterPanel() {
+  const { selectedClusterPins, selectCluster, selectPin, activeFilter, filteredPins, setFilter, selectedPin } = useGlobe();
+
+  // Don't show if a single pin is selected
+  if (selectedPin) return null;
+
+  // Show cluster list
+  if (selectedClusterPins.length > 0) {
+    return (
+      <PinList
+        pins={selectedClusterPins}
+        title="Nearby Pins"
+        onPinClick={(pin) => { selectCluster([]); selectPin(pin); }}
+        onClose={() => selectCluster([])}
+      />
+    );
+  }
+
+  // Show filtered category list
+  if (activeFilter !== 'all') {
+    const label = CATEGORY_LABELS[activeFilter] || activeFilter;
+    return (
+      <PinList
+        pins={filteredPins}
+        title={label}
+        onPinClick={(pin) => { selectPin(pin); }}
+        onClose={() => setFilter('all')}
+      />
+    );
+  }
+
+  return null;
 }
