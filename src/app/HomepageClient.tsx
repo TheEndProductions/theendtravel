@@ -51,7 +51,7 @@ export default function HomepageClient() {
           <h2 style={{ fontFamily: '"Playfair Display", serif', fontSize: '28px', fontWeight: 600, color: '#F5F2ED', margin: 0, marginBottom: '24px' }}>Stories From The Road</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '24px' }}>
             {['I Once Imagined', 'The Edge of Somewhere', 'Still Walking'].map((title, i) => (
-              <div key={title} style={{ borderRadius: '10px', overflow: 'hidden', border: '1px solid rgba(245,242,237,0.06)' }}>
+              <a key={title} href={i === 0 ? '/films' : undefined} style={{ borderRadius: '10px', overflow: 'hidden', border: '1px solid rgba(245,242,237,0.06)', textDecoration: 'none', display: 'block', cursor: i === 0 ? 'pointer' : 'default' }}>
                 <div style={{ aspectRatio: '16/9', background: `linear-gradient(135deg, hsl(${i * 30 + 20}, 20%, 12%) 0%, #0A0A0A 100%)`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '13px', color: 'rgba(245,242,237,0.3)', fontFamily: '"JetBrains Mono", monospace', overflow: 'hidden' }}>
                   {i === 0 ? (
                     <video src="/i-once-imagined-preview.mp4" muted loop playsInline autoPlay style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
@@ -61,7 +61,7 @@ export default function HomepageClient() {
                   <h3 style={{ fontFamily: '"Playfair Display", serif', fontSize: '18px', fontWeight: 600, color: '#F5F2ED', margin: '0 0 6px' }}>{title}</h3>
                   <p style={{ fontFamily: '"DM Sans", sans-serif', fontSize: '13px', color: 'rgba(212,207,199,0.6)', margin: 0 }}>{['Short Film', 'Short Film', 'Short Film'][i]}</p>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
           <a href="/films" style={{ display: 'inline-flex', marginTop: '24px', fontFamily: '"DM Sans", sans-serif', fontSize: '14px', color: '#C4530A', textDecoration: 'none', fontWeight: 600 }}>View All Films →</a>
