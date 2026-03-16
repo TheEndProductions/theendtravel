@@ -1,6 +1,6 @@
 'use client';
 import { useRef, useMemo } from 'react';
-import { useLoader } from '@react-three/fiber';
+import { useFrame, useLoader } from '@react-three/fiber';
 import * as THREE from 'three';
 
 interface EarthProps { lowRes?: boolean; opacity?: number; }
@@ -9,22 +9,29 @@ export default function Earth({ lowRes = false, opacity = 1 }: EarthProps) {
   const meshRef = useRef<THREE.Mesh>(null);
   const segments = lowRes ? 48 : 64;
 
-  const nightMap = useLoader(THREE.TextureLoader, '/textures/earth-night.jpg');
-  const bumpMap = useLoader(THREE.TextureLoader, '/textures/earth-bump.png');
+  const texture = useLoader(
+    THREE.TextureLoader,
+    'https://unpkg.com/three-globe@2.41.12/example/img/earth-dark.jpg'
+  );
 
   const material = useMemo(() => {
-    nightMap.colorSpace = THREE.SRGBColorSpace;
+    texture.colorSpace = THREE.SRGBColorSpace;
     return new THREE.MeshStandardMaterial({
-      map: nightMap,
-      bumpMap: bumpMap,
-      bumpScale: 0.03,
+      map: texture,
       transparent: opacity < 1,
       opacity: opacity,
-      emissiveMap: nightMap,
-      emissive: new THREE.Color(0xffddaa),
-      emissiveIntensity: 1.8,
+      emissiveMap: texture,
+      emissive: new THREE.Color(0xffffff),
+      emissiveIntensity: 2.5,
     });
-  }, [nightMap, bumpMap, opacity]);
+  }, [texture, opacity]);
+
+  useFrame(() => {
+    if (material) {
+      material.opacity = opacity;
+      material.transparent = opacity < 1;
+    }
+  });
 
   return (
     <mesh ref={meshRef} material={material}>
