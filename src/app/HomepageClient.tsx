@@ -50,12 +50,12 @@ export default function HomepageClient() {
           <SectionEyebrow>Films</SectionEyebrow>
           <h2 style={{ fontFamily: '"Playfair Display", serif', fontSize: '28px', fontWeight: 600, color: '#F5F2ED', margin: 0, marginBottom: '24px' }}>Stories From The Road</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '24px' }}>
-            {['The Edge of Somewhere', 'Still Walking', 'Between Walls'].map((title, i) => (
+            {['I Once Imagined', 'The Edge of Somewhere', 'Still Walking'].map((title, i) => (
               <div key={title} style={{ borderRadius: '10px', overflow: 'hidden', border: '1px solid rgba(245,242,237,0.06)' }}>
                 <div style={{ aspectRatio: '16/9', background: `linear-gradient(135deg, hsl(${i * 30 + 20}, 20%, 12%) 0%, #0A0A0A 100%)`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '13px', color: 'rgba(245,242,237,0.3)', fontFamily: '"JetBrains Mono", monospace' }}>[FILM STILL]</div>
                 <div style={{ padding: '16px' }}>
                   <h3 style={{ fontFamily: '"Playfair Display", serif', fontSize: '18px', fontWeight: 600, color: '#F5F2ED', margin: '0 0 6px' }}>{title}</h3>
-                  <p style={{ fontFamily: '"DM Sans", sans-serif', fontSize: '13px', color: 'rgba(212,207,199,0.6)', margin: 0 }}>{i === 2 ? 'In Production' : 'Short Film'}</p>
+                  <p style={{ fontFamily: '"DM Sans", sans-serif', fontSize: '13px', color: 'rgba(212,207,199,0.6)', margin: 0 }}>{['Short Film', 'Short Film', 'Short Film'][i]}</p>
                 </div>
               </div>
             ))}
