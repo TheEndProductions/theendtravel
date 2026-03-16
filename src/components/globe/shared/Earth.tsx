@@ -1,6 +1,6 @@
 'use client';
 import { useRef, useMemo } from 'react';
-import { useFrame, useLoader } from '@react-three/fiber';
+import { useLoader } from '@react-three/fiber';
 import * as THREE from 'three';
 
 interface EarthProps { lowRes?: boolean; opacity?: number; }
@@ -9,10 +9,8 @@ export default function Earth({ lowRes = false, opacity = 1 }: EarthProps) {
   const meshRef = useRef<THREE.Mesh>(null);
   const segments = lowRes ? 48 : 64;
 
-  const [nightMap, bumpMap] = useLoader(THREE.TextureLoader, [
-    '/textures/earth-night.jpg',
-    '/textures/earth-bump.png',
-  ]);
+  const nightMap = useLoader(THREE.TextureLoader, '/textures/earth-night.jpg');
+  const bumpMap = useLoader(THREE.TextureLoader, '/textures/earth-bump.png');
 
   const material = useMemo(() => {
     nightMap.colorSpace = THREE.SRGBColorSpace;
@@ -27,13 +25,6 @@ export default function Earth({ lowRes = false, opacity = 1 }: EarthProps) {
       emissiveIntensity: 1.8,
     });
   }, [nightMap, bumpMap, opacity]);
-
-  useFrame(() => {
-    if (material) {
-      material.opacity = opacity;
-      material.transparent = opacity < 1;
-    }
-  });
 
   return (
     <mesh ref={meshRef} material={material}>
