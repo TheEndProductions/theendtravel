@@ -54,7 +54,7 @@ export default function HomepageClient() {
               <div key={title} style={{ borderRadius: '10px', overflow: 'hidden', border: '1px solid rgba(245,242,237,0.06)' }}>
                 <div style={{ aspectRatio: '16/9', background: `linear-gradient(135deg, hsl(${i * 30 + 20}, 20%, 12%) 0%, #0A0A0A 100%)`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '13px', color: 'rgba(245,242,237,0.3)', fontFamily: '"JetBrains Mono", monospace', overflow: 'hidden' }}>
                   {i === 0 ? (
-                    <img src="https://img.youtube.com/vi/Ts9Xr9Nvz3w/maxresdefault.jpg" alt="I Once Imagined" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    <video src="/i-once-imagined-preview.mp4" muted loop playsInline autoPlay style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                   ) : '[FILM STILL]'}
                 </div>
                 <div style={{ padding: '16px' }}>
