@@ -39,6 +39,9 @@ export default function GlobeHeader() {
           </button>
         );
       })}
+      <a href="/" aria-label="Home" style={{ marginLeft: 'auto', opacity: 0.85, transition: 'opacity 0.2s', display: 'flex', alignItems: 'center' }} onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.opacity = '1'; }} onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.opacity = '0.85'; }}>
+        <img src="/logo.png" alt="Home" style={{ height: '45px', width: 'auto' }} />
+      </a>
     </div>
   );
 }
