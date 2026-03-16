@@ -4,11 +4,20 @@ import { useEffect, useRef } from 'react';
 
 const films = [
   {
+    title: 'Ten Falls Of Humanity',
+    type: 'Short Film',
+    location: 'Silver Falls State Park, Oregon',
+    description: 'A journey through ten waterfalls, each one a reflection on what it means to keep moving forward.',
+    video: '',
+    youtube: 'Ts9Xr9Nvz3w',
+  },
+  {
     title: 'The Edge of Somewhere',
     type: 'Short Film',
     location: 'Patagonia, Argentina',
     description: 'A solo journey to the southern edge of the world, where the wind speaks louder than words.',
     video: '',
+    youtube: '',
   },
   {
     title: 'Still Walking',
@@ -16,6 +25,7 @@ const films = [
     location: 'Kyoto, Japan',
     description: 'An old man, a foreign traveler, and the temple path they share without a common language.',
     video: '',
+    youtube: '',
   },
   {
     title: 'Between Walls',
@@ -23,6 +33,7 @@ const films = [
     location: 'Fez, Morocco',
     description: 'Inside the medina, stories live in the walls. A film about the spaces between people.',
     video: '',
+    youtube: '',
   },
 ];
 
@@ -68,7 +79,15 @@ function FilmCard({ film }: { film: typeof films[0] }) {
       }}
     >
       <div style={{ position: 'relative', aspectRatio: '16/9', background: '#0A0A0A', overflow: 'hidden' }}>
-        {film.video ? (
+        {film.youtube ? (
+          <iframe
+            src={`https://www.youtube-nocookie.com/embed/${film.youtube}?modestbranding=1&rel=0&showinfo=0&color=white&iv_load_policy=3`}
+            style={{ width: '100%', height: '100%', border: 'none' }}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            title={film.title}
+          />
+        ) : film.video ? (
           <video
             ref={videoRef}
             src={film.video}

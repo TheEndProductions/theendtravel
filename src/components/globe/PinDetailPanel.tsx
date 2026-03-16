@@ -2,6 +2,8 @@
 import { useGlobe } from './GlobeProvider';
 import { CATEGORY_COLORS, CATEGORY_LABELS } from '@/lib/globe/constants';
 
+const YOUTUBE_MAP: Record<string, string> = { 'ten-falls-of-humanity': 'Ts9Xr9Nvz3w' };
+
 export default function PinDetailPanel() {
   const { selectedPin, selectPin } = useGlobe();
   if (!selectedPin) return null;
@@ -10,10 +12,22 @@ export default function PinDetailPanel() {
 
   return (
     <div style={{ position: 'absolute', top: 0, right: 0, width: '380px', height: '100%', background: 'rgba(10,10,10,0.95)', borderLeft: '1px solid rgba(245,242,237,0.08)', overflowY: 'auto', zIndex: 10, display: 'flex', flexDirection: 'column' }} role="dialog" aria-label="Pin details">
-      {/* Cover placeholder */}
-      <div style={{ height: '200px', background: `linear-gradient(135deg, ${color}33, #0A0A0A)`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '13px', color: 'rgba(245,242,237,0.3)', fontFamily: '"JetBrains Mono", monospace' }}>
-        [COVER IMAGE]
-      </div>
+      {/* Cover */}
+      {selectedPin.relatedLinks.filmSlug && YOUTUBE_MAP[selectedPin.relatedLinks.filmSlug] ? (
+        <div style={{ aspectRatio: '16/9', background: '#000' }}>
+          <iframe
+            src={`https://www.youtube-nocookie.com/embed/${YOUTUBE_MAP[selectedPin.relatedLinks.filmSlug]}?modestbranding=1&rel=0&showinfo=0&color=white&iv_load_policy=3`}
+            style={{ width: '100%', height: '100%', border: 'none' }}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            title={selectedPin.title}
+          />
+        </div>
+      ) : (
+        <div style={{ height: '200px', background: `linear-gradient(135deg, ${color}33, #0A0A0A)`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '13px', color: 'rgba(245,242,237,0.3)', fontFamily: '"JetBrains Mono", monospace' }}>
+          [COVER IMAGE]
+        </div>
+      )}
 
       <div style={{ padding: '24px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
         {/* Category badge */}
