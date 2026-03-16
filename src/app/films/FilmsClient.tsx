@@ -4,9 +4,9 @@ import { useEffect, useRef } from 'react';
 
 const films = [
   {
-    title: 'Ten Falls Of Humanity',
+    title: 'I Once Imagined',
     type: 'Short Film',
-    location: 'Silver Falls State Park, Oregon',
+    location: 'Trail of Ten Falls, Oregon',
     description: 'A journey through ten waterfalls, each one a reflection on what it means to keep moving forward.',
     video: '',
     youtube: 'Ts9Xr9Nvz3w',
