@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const films = [
   {
@@ -44,6 +44,7 @@ const films = [
 function FilmCard({ film }: { film: typeof films[0] }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const [playing, setPlaying] = useState(false);
 
   useEffect(() => {
     const el = containerRef.current;
@@ -83,15 +84,30 @@ function FilmCard({ film }: { film: typeof films[0] }) {
       }}
     >
       <div style={{ position: 'relative', aspectRatio: '16/9', background: '#0A0A0A', overflow: 'hidden' }}>
-        {film.preview ? (
-          <video
-            ref={videoRef}
-            src={film.preview}
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+        {film.preview && !playing ? (
+          <div onClick={() => { if (film.youtube) setPlaying(true); }} style={{ width: '100%', height: '100%', cursor: 'pointer', position: 'relative' }}>
+            <video
+              ref={videoRef}
+              src={film.preview}
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            />
+            <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(0,0,0,0.15)', transition: 'background 0.3s' }}>
+              <svg width="56" height="56" viewBox="0 0 24 24" fill="rgba(245,242,237,0.9)" stroke="none">
+                <polygon points="5 3 19 12 5 21 5 3" />
+              </svg>
+            </div>
+          </div>
+        ) : (film.preview && playing) || film.youtube ? (
+          <iframe
+            src={`https://www.youtube-nocookie.com/embed/${film.youtube}?modestbranding=1&rel=0&showinfo=0&color=white&iv_load_policy=3&autoplay=1`}
+            style={{ width: '100%', height: '100%', border: 'none' }}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            title={film.title}
           />
         ) : film.youtube ? (
           <iframe
