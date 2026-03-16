@@ -10,6 +10,7 @@ const films = [
     description: 'A reflection on a world that could be so simple.',
     video: '',
     youtube: 'Ts9Xr9Nvz3w',
+    preview: '/i-once-imagined-preview.mp4',
   },
   {
     title: 'The Edge of Somewhere',
@@ -18,6 +19,7 @@ const films = [
     description: 'A solo journey to the southern edge of the world, where the wind speaks louder than words.',
     video: '',
     youtube: '',
+    preview: '',
   },
   {
     title: 'Still Walking',
@@ -26,6 +28,7 @@ const films = [
     description: 'An old man, a foreign traveler, and the temple path they share without a common language.',
     video: '',
     youtube: '',
+    preview: '',
   },
   {
     title: 'Between Walls',
@@ -34,6 +37,7 @@ const films = [
     description: 'Inside the medina, stories live in the walls. A film about the spaces between people.',
     video: '',
     youtube: '',
+    preview: '',
   },
 ];
 
@@ -79,7 +83,17 @@ function FilmCard({ film }: { film: typeof films[0] }) {
       }}
     >
       <div style={{ position: 'relative', aspectRatio: '16/9', background: '#0A0A0A', overflow: 'hidden' }}>
-        {film.youtube ? (
+        {film.preview ? (
+          <video
+            ref={videoRef}
+            src={film.preview}
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          />
+        ) : film.youtube ? (
           <iframe
             src={`https://www.youtube-nocookie.com/embed/${film.youtube}?modestbranding=1&rel=0&showinfo=0&color=white&iv_load_policy=3`}
             style={{ width: '100%', height: '100%', border: 'none' }}
