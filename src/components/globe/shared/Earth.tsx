@@ -9,22 +9,24 @@ export default function Earth({ lowRes = false, opacity = 1 }: EarthProps) {
   const meshRef = useRef<THREE.Mesh>(null);
   const segments = lowRes ? 48 : 64;
 
-  const texture = useLoader(
-    THREE.TextureLoader,
-    'https://unpkg.com/three-globe@2.41.12/example/img/earth-dark.jpg'
-  );
+  const [nightMap, bumpMap] = useLoader(THREE.TextureLoader, [
+    '/textures/earth-night.jpg',
+    '/textures/earth-bump.png',
+  ]);
 
   const material = useMemo(() => {
-    texture.colorSpace = THREE.SRGBColorSpace;
+    nightMap.colorSpace = THREE.SRGBColorSpace;
     return new THREE.MeshStandardMaterial({
-      map: texture,
+      map: nightMap,
+      bumpMap: bumpMap,
+      bumpScale: 0.03,
       transparent: opacity < 1,
       opacity: opacity,
-      emissiveMap: texture,
-      emissive: new THREE.Color(0xffffff),
-      emissiveIntensity: 2.5,
+      emissiveMap: nightMap,
+      emissive: new THREE.Color(0xffddaa),
+      emissiveIntensity: 1.8,
     });
-  }, [texture, opacity]);
+  }, [nightMap, bumpMap, opacity]);
 
   useFrame(() => {
     if (material) {
