@@ -7,7 +7,7 @@ const films = [
     title: 'I Once Imagined',
     type: 'Short Film',
     location: 'Trail of Ten Falls, Oregon',
-    description: 'A journey through ten waterfalls, each one a reflection on what it means to keep moving forward.',
+    description: 'A reflection on a world that could be so simple.',
     video: '',
     youtube: 'Ts9Xr9Nvz3w',
   },
