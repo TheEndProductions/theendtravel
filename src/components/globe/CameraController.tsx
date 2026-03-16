@@ -7,7 +7,7 @@ import { useGlobe } from './GlobeProvider';
 import { latLngToVector3 } from '@/lib/globe/coordinates';
 
 export default function CameraController() {
-  const { selectedPin, setCameraZoom } = useGlobe();
+  const { selectedPin, selectedClusterPins, setCameraZoom } = useGlobe();
   const controlsRef = useRef<any>(null);
   const { camera } = useThree();
   const [flyTarget, setFlyTarget] = useState<THREE.Vector3 | null>(null);
@@ -47,6 +47,17 @@ export default function CameraController() {
       setFlyTarget(dir.multiplyScalar(2.2));
     }
   }, [selectedPin]);
+
+  // Fly to cluster center
+  useEffect(() => {
+    if (selectedClusterPins.length > 0) {
+      const avgLat = selectedClusterPins.reduce((s, p) => s + p.latitude, 0) / selectedClusterPins.length;
+      const avgLng = selectedClusterPins.reduce((s, p) => s + p.longitude, 0) / selectedClusterPins.length;
+      const pos = latLngToVector3(avgLat, avgLng, 0);
+      const dir = new THREE.Vector3(...pos).normalize();
+      setFlyTarget(dir.multiplyScalar(2.0));
+    }
+  }, [selectedClusterPins]);
 
   return (
     <OrbitControls
