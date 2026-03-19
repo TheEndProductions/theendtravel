@@ -16,7 +16,7 @@ export default function HeroHeadline() {
     let raf: number;
     const tick = (now: number) => {
       setElapsed((now - start) / 1000);
-      if ((now - start) / 1000 < 10) raf = requestAnimationFrame(tick);
+      if ((now - start) / 1000 < 8) raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
@@ -28,11 +28,11 @@ export default function HeroHeadline() {
     return { opacity: t, transform: `translateY(${(1 - t) * 16}px)` };
   };
 
-  const line1 = fadeIn(0.5);
-  const amp = fadeIn(1.2);
-  const line2 = fadeIn(1.7);
-  const subtitle = fadeIn(3.8, 0.8);
-  const buttons = fadeIn(4.8, 0.8);
+  const line1 = fadeIn(0.4);
+  const amp = fadeIn(0.9);
+  const line2 = fadeIn(1.3);
+  const subtitle = fadeIn(2.1, 0.7);
+  const buttons = fadeIn(2.8, 0.7);
 
   return (
     <div id="hero-headline" style={{ position: 'relative', zIndex: 1, height: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '8px', padding: '0 24px', textAlign: 'center' }}>
