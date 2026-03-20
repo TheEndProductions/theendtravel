@@ -21,8 +21,8 @@ export default function Earth({ lowRes = false, opacity = 1 }: EarthProps) {
       transparent: opacity < 1,
       opacity: opacity,
       emissiveMap: nightMap,
-      emissive: new THREE.Color(0xffddaa),
-      emissiveIntensity: 1.8,
+      emissive: new THREE.Color(0xffe4bb),
+      emissiveIntensity: 2.2,
     });
   }, [nightMap, bumpMap, opacity]);
 
