@@ -16,8 +16,8 @@ export default function EndlessClient() {
       <Section>
         <div style={{ minHeight: '60vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '16px', maxWidth: '600px' }}>
           <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: '10px', color: '#C4530A', textTransform: 'uppercase', letterSpacing: '0.2em' }}>The Endless Backpack</div>
-          <h1 style={{ fontFamily: '"Playfair Display", serif', fontSize: 'clamp(32px, 5vw, 52px)', fontWeight: 600, color: '#F5F2ED', margin: 0, lineHeight: 1.15 }}>A System, Not Just a Bag</h1>
-          <p style={{ fontFamily: '"DM Sans", sans-serif', fontSize: '17px', color: '#D4CFC7', lineHeight: 1.7, margin: 0 }}>4 pieces designed to work together. From summit to city, from carry-on to day trip — one ecosystem handles it all.</p>
+          <h1 style={{ fontFamily: '"Playfair Display", serif', fontSize: 'clamp(32px, 5vw, 52px)', fontWeight: 600, color: '#F5F2ED', margin: 0, lineHeight: 1.15 }}>An Ecosystem, Not Just a Bag</h1>
+          <p style={{ fontFamily: '"DM Sans", sans-serif', fontSize: '17px', color: '#D4CFC7', lineHeight: 1.7, margin: 0 }}>4 pieces designed to work together - one ecosystem handles it all.</p>
           <KickstarterCTA source="endless-hero" />
         </div>
       </Section>
