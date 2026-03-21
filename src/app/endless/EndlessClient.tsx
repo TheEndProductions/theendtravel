@@ -14,8 +14,8 @@ export default function EndlessClient() {
     <div style={{ background: '#0A0A0A', minHeight: '100vh' }}>
       {/* Hero */}
       <section style={{ position: 'relative', width: '100%', minHeight: '70vh', overflow: 'hidden' }}>
-        <img src="/endless-hero-banner.jpg" alt="The Endless Backpack" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 20%' }} />
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0.0) 20%, rgba(10,10,10,0.2) 100%)' }} />
+        <img src="/endless-hero-banner.jpg" alt="The Endless Backpack" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 60%' }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,10,10,0.5) 0%, rgba(10,10,10,0.0) 15%, rgba(10,10,10,0.2) 100%)' }} />
         <div style={{ position: 'relative', zIndex: 1, minHeight: '70vh', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center', gap: '20px', textAlign: 'center', padding: '160px 24px 80px' }}>
           <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: '10px', color: '#C4530A', textTransform: 'uppercase', letterSpacing: '0.2em' }}>The Endless Backpack</div>
           <h1 style={{ fontFamily: '"Playfair Display", serif', fontSize: 'clamp(32px, 5vw, 52px)', fontWeight: 600, color: '#F5F2ED', margin: 0, lineHeight: 1.15 }}>An Ecosystem, Not Just a Bag</h1>
