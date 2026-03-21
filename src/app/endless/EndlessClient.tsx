@@ -16,7 +16,7 @@ export default function EndlessClient() {
       <section style={{ position: 'relative', width: '100%', minHeight: '70vh', overflow: 'hidden' }}>
         <img src="/endless-hero-banner.jpg" alt="The Endless Backpack" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center bottom' }} />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,10,10,0.35) 0%, rgba(10,10,10,0.0) 10%, rgba(10,10,10,0.15) 100%)' }} />
-        <div style={{ position: 'relative', zIndex: 1, minHeight: '70vh', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center', gap: '20px', textAlign: 'center', padding: '160px 24px 80px' }}>
+        <div style={{ position: 'relative', zIndex: 1, minHeight: '70vh', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center', gap: '20px', textAlign: 'center', padding: '120px 24px 80px' }}>
                     <h1 style={{ fontFamily: '"Playfair Display", serif', fontWeight: 600, color: '#F5F2ED', margin: 0, lineHeight: 1.15 }}>
             <span style={{ display: 'block', fontSize: 'clamp(40px, 8vw, 64px)', marginBottom: '8px' }}>Endless</span>
             <span style={{ display: 'block', fontSize: 'clamp(22px, 4vw, 32px)', fontWeight: 400, color: '#D4CFC7' }}>An Ecosystem, Not Just a Bag</span>
