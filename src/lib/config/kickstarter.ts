@@ -18,6 +18,7 @@ export const ENDLESS_PIECES = [
     features: ['40L main compartment', 'Clamshell opening', 'Laptop sleeve (up to 16")', 'Hidden passport pocket', 'Compression straps', 'Daypack attachment points'],
     specs: { Volume: '40L', Weight: '1.4 kg', Dimensions: '55 × 35 × 25 cm', Material: '500D Cordura', Laptop: 'Up to 16"' },
     priceIndividual: 189,
+    media: { type: 'image', src: '' },
   },
   {
     id: 'daypack', name: 'The Daypack', subtitle: 'Your daily carry companion',
@@ -26,6 +27,7 @@ export const ENDLESS_PIECES = [
     features: ['18L capacity', 'Attaches to Endless Pack', 'Water bottle pockets', 'Quick-access front pocket', 'Padded back panel', 'Packable design'],
     specs: { Volume: '18L', Weight: '0.5 kg', Dimensions: '45 × 28 × 15 cm', Material: '500D Cordura' },
     priceIndividual: 89,
+    media: { type: 'image', src: '' },
   },
   {
     id: 'sling', name: 'The Sling', subtitle: 'Essentials on the move',
@@ -34,6 +36,7 @@ export const ENDLESS_PIECES = [
     features: ['5L capacity', 'Cross-body wear', 'RFID-blocking pocket', 'Quick-swing access', 'Water-resistant', 'Adjustable strap'],
     specs: { Volume: '5L', Weight: '0.25 kg', Dimensions: '32 × 18 × 8 cm', Material: '500D Cordura' },
     priceIndividual: 59,
+    media: { type: 'image', src: '' },
   },
   {
     id: 'kit', name: 'The Kit', subtitle: 'Organized from the inside out',
@@ -42,6 +45,7 @@ export const ENDLESS_PIECES = [
     features: ['3.5L capacity', 'Hanging hook', 'Clear TSA-friendly pocket', 'Mesh organizer dividers', 'Water-resistant lining', 'Fits inside all pieces'],
     specs: { Volume: '3.5L', Weight: '0.18 kg', Dimensions: '24 × 14 × 10 cm', Material: '500D Cordura' },
     priceIndividual: 39,
+    media: { type: 'image', src: '' },
   },
 ];
 

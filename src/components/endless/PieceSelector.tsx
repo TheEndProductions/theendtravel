@@ -17,6 +17,45 @@ export default function PieceSelector() {
         ))}
       </div>
 
+      {/* Media Slot */}
+      <div style={{
+        width: '100%', aspectRatio: '16/9', borderRadius: '12px', overflow: 'hidden',
+        background: 'linear-gradient(135deg, rgba(196,83,10,0.06) 0%, rgba(10,10,10,0.8) 100%)',
+        border: '1px solid rgba(245,242,237,0.06)',
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        transition: 'all 0.3s ease',
+      }}>
+        {piece.media.src ? (
+          piece.media.type === 'video' ? (
+            <video
+              key={piece.id}
+              src={piece.media.src}
+              muted
+              loop
+              playsInline
+              autoPlay
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            />
+          ) : (
+            <img
+              key={piece.id}
+              src={piece.media.src}
+              alt={piece.name}
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            />
+          )
+        ) : (
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(245,242,237,0.12)" strokeWidth="1.2">
+              <rect x="2" y="2" width="20" height="20" rx="2" />
+              <circle cx="8.5" cy="8.5" r="1.5" />
+              <path d="M21 15l-5-5L5 21" />
+            </svg>
+            <span style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: '10px', color: 'rgba(245,242,237,0.2)', textTransform: 'uppercase', letterSpacing: '0.15em' }}>{piece.name}</span>
+          </div>
+        )}
+      </div>
+
       {/* Content */}
       <div style={{ display: 'flex', gap: '32px', flexWrap: 'wrap' }}>
         <div style={{ flex: '1 1 300px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
