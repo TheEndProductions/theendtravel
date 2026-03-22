@@ -21,6 +21,7 @@ export default function EndlessClient() {
             <span style={{ display: 'block', fontSize: 'clamp(40px, 8vw, 64px)', marginBottom: '32px' }}>Endless.</span>
             <span style={{ display: 'block', fontSize: 'clamp(22px, 4vw, 32px)', fontWeight: 400, color: '#D4CFC7' }}>An Ecosystem, Not Just a Bag</span>
           </h1>
+          <div style={{ height: '24px' }} />
           <p style={{ fontFamily: '"DM Sans", sans-serif', fontSize: '17px', color: '#D4CFC7', lineHeight: 1.7, margin: 0, maxWidth: '640px' }}>Most travel bags solve one problem. You end up buying five bags that don't work together. The Endless Ecosystem is four pieces engineered as one — they nest, attach, and adapt so you carry exactly what you need, whether that's a week in Southeast Asia or an afternoon in your own city.</p>
         </div>
       </section>
