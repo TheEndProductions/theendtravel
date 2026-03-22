@@ -68,13 +68,7 @@ export default function HomepageClient() {
               </a>
             ))}
           </div>
-          </div>
-        </section>
-
-        {/* 4. Films */}
-        <Section>
-          <SectionEyebrow>Films</SectionEyebrow>
-          <h2 style={{ fontFamily: '"Playfair Display", serif', fontSize: '28px', fontWeight: 600, color: '#F5F2ED', margin: 0, marginBottom: '24px' }}>Stories From The Road</h2>{{ display: 'inline-flex', marginTop: '24px', fontFamily: '"DM Sans", sans-serif', fontSize: '14px', color: '#C4530A', textDecoration: 'none', fontWeight: 600 }}>View All Films →</a>
+          <a href="/films" style={{ display: 'inline-flex', marginTop: '24px', fontFamily: '"DM Sans", sans-serif', fontSize: '14px', color: '#C4530A', textDecoration: 'none', fontWeight: 600 }}>View All Films →</a>
         </Section>
 
         {/* 5. Journey Map teaser */}
