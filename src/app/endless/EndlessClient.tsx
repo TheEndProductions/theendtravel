@@ -22,7 +22,6 @@ export default function EndlessClient() {
             <span style={{ display: 'block', fontSize: 'clamp(22px, 4vw, 32px)', fontWeight: 400, color: '#D4CFC7' }}>An Ecosystem, Not Just a Bag</span>
           </h1>
           <p style={{ fontFamily: '"DM Sans", sans-serif', fontSize: '17px', color: '#D4CFC7', lineHeight: 1.7, margin: 0, maxWidth: '640px' }}>Most travel bags solve one problem. You end up buying five bags that don't work together. The Endless Ecosystem is four pieces engineered as one — they nest, attach, and adapt so you carry exactly what you need, whether that's a week in Southeast Asia or an afternoon in your own city.</p>
-          <KickstarterCTA source="endless-hero" />
         </div>
       </section>
 
@@ -36,7 +35,15 @@ export default function EndlessClient() {
       <Section>
         <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: '10px', color: '#8B7355', textTransform: 'uppercase', letterSpacing: '0.2em', marginBottom: '16px' }}>Pricing</div>
         <h2 style={{ fontFamily: '"Playfair Display", serif', fontSize: '28px', fontWeight: 600, color: '#F5F2ED', margin: '0 0 32px' }}>Individual or The Ecosystem</h2>
-        <BundleComparison />
+        <div style={{ display: 'flex', gap: '32px', flexWrap: 'wrap', alignItems: 'flex-start' }}>
+          <div style={{ flex: '1 1 500px' }}>
+            <BundleComparison />
+          </div>
+          <div style={{ flex: '0 1 320px', padding: '28px', borderRadius: '12px', border: '1px solid rgba(245,242,237,0.06)', background: 'rgba(10,10,10,0.4)', display: 'flex', flexDirection: 'column', gap: '16px', alignItems: 'center', textAlign: 'center' }}>
+            <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: '10px', color: '#C4530A', textTransform: 'uppercase', letterSpacing: '0.15em' }}>Launching Soon</div>
+            <KickstarterCTA source="endless-pricing" compact />
+          </div>
+        </div>
       </Section>
 
       {/* In the Wild */}
