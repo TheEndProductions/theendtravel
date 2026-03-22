@@ -35,7 +35,7 @@ export default function EndlessClient() {
       {/* Bundle */}
       <Section>
         <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: '10px', color: '#8B7355', textTransform: 'uppercase', letterSpacing: '0.2em', marginBottom: '16px' }}>Pricing</div>
-        <h2 style={{ fontFamily: '"Playfair Display", serif', fontSize: '28px', fontWeight: 600, color: '#F5F2ED', margin: '0 0 32px' }}>Individual or System</h2>
+        <h2 style={{ fontFamily: '"Playfair Display", serif', fontSize: '28px', fontWeight: 600, color: '#F5F2ED', margin: '0 0 32px' }}>Individual or The Ecosystem</h2>
         <BundleComparison />
       </Section>
 

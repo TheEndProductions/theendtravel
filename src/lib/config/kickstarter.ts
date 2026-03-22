@@ -49,6 +49,6 @@ export const ENDLESS_PIECES = [
   },
 ];
 
-export const BUNDLE_PRICE = 329;
+export const BUNDLE_PRICE = 350;
 export const BUNDLE_SAVINGS = ENDLESS_PIECES.reduce((sum, p) => sum + p.priceIndividual, 0) - BUNDLE_PRICE;
 export const BUNDLE_HANDLE = 'endless-system';
