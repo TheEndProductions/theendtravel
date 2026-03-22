@@ -39,11 +39,15 @@ export default function HomepageClient() {
         </Section>
 
         {/* 3. Endless Backpack */}
-        <Section bg="rgba(26,21,16,0.3)" id="endless">
+        <section id="endless" style={{ position: 'relative', padding: '100px 24px', overflow: 'hidden' }}>
+          <img src="/endless-section-bg.jpg" alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.3 }} />
+          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, #0A0A0A 0%, rgba(10,10,10,0.2) 20%, rgba(10,10,10,0.2) 80%, #0A0A0A 100%)' }} />
+          <div style={{ position: 'relative', zIndex: 1, maxWidth: '1200px', margin: '0 auto' }}>
           <SectionEyebrow>Gear</SectionEyebrow>
           <h2 style={{ fontFamily: '"Playfair Display", serif', fontSize: '28px', fontWeight: 600, color: '#F5F2ED', margin: 0, marginBottom: '32px' }}>The Endless Backpack Ecosystem</h2>
           <HomepageEndlessSection />
-        </Section>
+          </div>
+        </section>
 
         {/* 4. Films */}
         <Section>
@@ -64,7 +68,13 @@ export default function HomepageClient() {
               </a>
             ))}
           </div>
-          <a href="/films" style={{ display: 'inline-flex', marginTop: '24px', fontFamily: '"DM Sans", sans-serif', fontSize: '14px', color: '#C4530A', textDecoration: 'none', fontWeight: 600 }}>View All Films →</a>
+          </div>
+        </section>
+
+        {/* 4. Films */}
+        <Section>
+          <SectionEyebrow>Films</SectionEyebrow>
+          <h2 style={{ fontFamily: '"Playfair Display", serif', fontSize: '28px', fontWeight: 600, color: '#F5F2ED', margin: 0, marginBottom: '24px' }}>Stories From The Road</h2>{{ display: 'inline-flex', marginTop: '24px', fontFamily: '"DM Sans", sans-serif', fontSize: '14px', color: '#C4530A', textDecoration: 'none', fontWeight: 600 }}>View All Films →</a>
         </Section>
 
         {/* 5. Journey Map teaser */}
