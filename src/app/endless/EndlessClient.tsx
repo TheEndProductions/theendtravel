@@ -4,7 +4,7 @@ import BundleComparison from '@/components/endless/BundleComparison';
 import KickstarterCTA from '@/components/endless/KickstarterCTA';
 
 const Section = ({ children, bg }: { children: React.ReactNode; bg?: string }) => (
-  <section style={{ padding: '80px 24px', background: bg || 'transparent' }}>
+  <section style={{ padding: '40px 24px 120px', background: bg || 'transparent' }}>
     <div style={{ maxWidth: '1000px', margin: '0 auto' }}>{children}</div>
   </section>
 );
@@ -16,9 +16,9 @@ export default function EndlessClient() {
       <section style={{ position: 'relative', width: '100%', minHeight: '70vh', overflow: 'hidden' }}>
         <img src="/endless-hero-banner.jpg" alt="The Endless Backpack" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center bottom' }} />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,10,10,0.35) 0%, rgba(10,10,10,0.0) 10%, rgba(10,10,10,0.15) 100%)' }} />
-        <div style={{ position: 'relative', zIndex: 1, minHeight: '70vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: '20px', textAlign: 'center', padding: '80px 24px' }}>
+        <div style={{ position: 'relative', zIndex: 1, minHeight: '70vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: '20px', textAlign: 'center', padding: '40px 24px 120px' }}>
                     <h1 style={{ fontFamily: '"Playfair Display", serif', fontWeight: 600, color: '#F5F2ED', margin: 0, lineHeight: 1.15 }}>
-            <span style={{ display: 'block', fontSize: 'clamp(40px, 8vw, 64px)', marginBottom: '8px' }}>Endless.</span>
+            <span style={{ display: 'block', fontSize: 'clamp(40px, 8vw, 64px)', marginBottom: '32px' }}>Endless.</span>
             <span style={{ display: 'block', fontSize: 'clamp(22px, 4vw, 32px)', fontWeight: 400, color: '#D4CFC7' }}>An Ecosystem, Not Just a Bag</span>
           </h1>
           <p style={{ fontFamily: '"DM Sans", sans-serif', fontSize: '17px', color: '#D4CFC7', lineHeight: 1.7, margin: 0, maxWidth: '640px' }}>Most travel bags solve one problem. You end up buying five bags that don't work together. The Endless Ecosystem is four pieces engineered as one — they nest, attach, and adapt so you carry exactly what you need, whether that's a week in Southeast Asia or an afternoon in your own city.</p>
