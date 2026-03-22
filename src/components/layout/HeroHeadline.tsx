@@ -52,6 +52,7 @@ export default function HeroHeadline() {
       <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginTop: '16px', justifyContent: 'center', ...buttons }}>
         <a href="/journey-map" style={{ display: 'inline-flex', alignItems: 'center', height: '48px', padding: '0 28px', borderRadius: '6px', background: '#C4530A', color: '#F5F2ED', fontSize: '15px', fontFamily: '"DM Sans", sans-serif', fontWeight: 600, textDecoration: 'none' }}>Explore the Map →</a>
         <a href="/films" style={{ display: 'inline-flex', alignItems: 'center', height: '48px', padding: '0 28px', borderRadius: '6px', border: '1px solid rgba(245,242,237,0.15)', color: '#F5F2ED', fontSize: '15px', fontFamily: '"DM Sans", sans-serif', textDecoration: 'none' }}>Watch Films</a>
+        <a href="/endless" style={{ display: 'inline-flex', alignItems: 'center', height: '48px', padding: '0 28px', borderRadius: '6px', border: '1px solid rgba(245,242,237,0.15)', color: '#F5F2ED', fontSize: '15px', fontFamily: '"DM Sans", sans-serif', textDecoration: 'none' }}>The Endless Pack</a>
       </div>
     </div>
   );
