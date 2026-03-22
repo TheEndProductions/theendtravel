@@ -44,6 +44,11 @@ export default function EndlessClient() {
             <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: '10px', color: '#C4530A', textTransform: 'uppercase', letterSpacing: '0.15em' }}>Launching Soon</div>
             <KickstarterCTA source="endless-pricing" compact />
           </div>
+          <div style={{ flex: '0 1 320px', padding: '28px', borderRadius: '12px', border: '1px solid rgba(196,83,10,0.3)', background: 'linear-gradient(135deg, rgba(196,83,10,0.08) 0%, rgba(10,10,10,0.6) 100%)', display: 'flex', flexDirection: 'column', gap: '12px', alignItems: 'center', textAlign: 'center' }}>
+            <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: '10px', color: '#C4530A', textTransform: 'uppercase', letterSpacing: '0.15em' }}>Early Supporter Exclusive</div>
+            <div style={{ fontFamily: '"Playfair Display", serif', fontSize: '36px', fontWeight: 600, color: '#F5F2ED' }}>15% Off</div>
+            <p style={{ fontFamily: '"DM Sans", sans-serif', fontSize: '14px', color: '#D4CFC7', lineHeight: 1.6, margin: 0 }}>Join the list above and get 15% off your entire order when we launch. Be first in line.</p>
+          </div>
         </div>
       </Section>
 
