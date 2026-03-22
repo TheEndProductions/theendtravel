@@ -32,6 +32,13 @@ export default function EndlessClient() {
         <PieceSelector />
       </Section>
 
+      {/* Bundle */}
+      <Section>
+        <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: '10px', color: '#8B7355', textTransform: 'uppercase', letterSpacing: '0.2em', marginBottom: '16px' }}>Pricing</div>
+        <h2 style={{ fontFamily: '"Playfair Display", serif', fontSize: '28px', fontWeight: 600, color: '#F5F2ED', margin: '0 0 32px' }}>Individual or System</h2>
+        <BundleComparison />
+      </Section>
+
       {/* In the Wild */}
       <Section bg="rgba(26,21,16,0.3)">
         <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: '10px', color: '#8B7355', textTransform: 'uppercase', letterSpacing: '0.2em', marginBottom: '16px' }}>In the Wild</div>
@@ -47,13 +54,6 @@ export default function EndlessClient() {
             </div>
           ))}
         </div>
-      </Section>
-
-      {/* Bundle */}
-      <Section>
-        <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: '10px', color: '#8B7355', textTransform: 'uppercase', letterSpacing: '0.2em', marginBottom: '16px' }}>Pricing</div>
-        <h2 style={{ fontFamily: '"Playfair Display", serif', fontSize: '28px', fontWeight: 600, color: '#F5F2ED', margin: '0 0 32px' }}>Individual or System</h2>
-        <BundleComparison />
       </Section>
 
       {/* Final CTA */}
