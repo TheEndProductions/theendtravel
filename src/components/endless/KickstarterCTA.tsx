@@ -8,17 +8,17 @@ export default function KickstarterCTA({ compact = false, source = 'other' }: Pr
   const { phase, campaignUrl, launchDate, fundingPercent, fundingGoal, fundingCurrent, backersCount } = KICKSTARTER_CONFIG;
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-  const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0 });
+  const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {
     if (phase !== 'pre-launch') return;
     const update = () => {
       const diff = new Date(launchDate).getTime() - Date.now();
-      if (diff <= 0) { setCountdown({ days: 0, hours: 0, minutes: 0 }); return; }
-      setCountdown({ days: Math.floor(diff / 864e5), hours: Math.floor((diff % 864e5) / 36e5), minutes: Math.floor((diff % 36e5) / 6e4) });
+      if (diff <= 0) { setCountdown({ days: 0, hours: 0, minutes: 0, seconds: 0 }); return; }
+      setCountdown({ days: Math.floor(diff / 864e5), hours: Math.floor((diff % 864e5) / 36e5), minutes: Math.floor((diff % 36e5) / 6e4), seconds: Math.floor((diff % 6e4) / 1e3) });
     };
     update();
-    const i = setInterval(update, 60000);
+    const i = setInterval(update, 1000);
     return () => clearInterval(i);
   }, [phase, launchDate]);
 
@@ -35,7 +35,7 @@ export default function KickstarterCTA({ compact = false, source = 'other' }: Pr
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', alignItems: compact ? 'flex-start' : 'center' }}>
         <div style={{ display: 'flex', gap: '16px', fontFamily: '"JetBrains Mono", monospace' }}>
-          {[['days', countdown.days], ['hrs', countdown.hours], ['min', countdown.minutes]].map(([label, val]) => (
+          {[['days', countdown.days], ['hrs', countdown.hours], ['min', countdown.minutes], ['sec', countdown.seconds]].map(([label, val]) => (
             <div key={label as string} style={{ textAlign: 'center' }}>
               <div style={{ fontSize: '28px', fontWeight: 600, color: '#F5F2ED' }}>{String(val).padStart(2, '0')}</div>
               <div style={{ fontSize: '10px', color: '#8B7355', textTransform: 'uppercase', letterSpacing: '0.1em' }}>{label as string}</div>
