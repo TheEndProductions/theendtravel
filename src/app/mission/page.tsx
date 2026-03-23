@@ -3,7 +3,7 @@ export const metadata: Metadata = { title: 'Our Mission — TheEndProductions', 
 export default function MissionPage() {
   return (
     <div style={{ minHeight: '100vh', background: '#0A0A0A', position: 'relative' }}>
-      <img src="/mission.JPG" alt="" style={{ position: 'fixed', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 30%', opacity: 0.18, transform: 'scale(0.9)', zIndex: 0 }} />
+      <img src="/mission.JPG" alt="" style={{ position: 'fixed', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 30%', opacity: 0.25, transform: 'scale(0.9)', zIndex: 0 }} />
       <div style={{ position: 'relative', zIndex: 1 }}>
       <section style={{ padding: '160px 24px 80px', textAlign: 'center' }}>
         <div style={{ maxWidth: '700px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '16px', alignItems: 'center' }}>
