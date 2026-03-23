@@ -2,7 +2,9 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = { title: 'Our Mission — TheEndProductions', description: 'Thoughtful design, built to last, for a purpose.' };
 export default function MissionPage() {
   return (
-    <div style={{ minHeight: '100vh', background: '#0A0A0A' }}>
+    <div style={{ minHeight: '100vh', background: '#0A0A0A', position: 'relative' }}>
+      <img src="/mission.JPG" alt="" style={{ position: 'fixed', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center center', opacity: 0.12, zIndex: 0 }} />
+      <div style={{ position: 'relative', zIndex: 1 }}>
       <section style={{ padding: '160px 24px 80px', textAlign: 'center' }}>
         <div style={{ maxWidth: '700px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '16px', alignItems: 'center' }}>
           <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: '10px', color: '#C4530A', textTransform: 'uppercase', letterSpacing: '0.25em' }}>Our Mission</div>
@@ -15,12 +17,6 @@ export default function MissionPage() {
           <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: '10px', color: '#C4530A', textTransform: 'uppercase', letterSpacing: '0.2em' }}>01</div>
           <h2 style={{ fontFamily: '"Playfair Display", serif', fontSize: 'clamp(28px, 5vw, 40px)', fontWeight: 600, color: '#F5F2ED', margin: 0 }}>Thoughtful Design.</h2>
           <p style={{ fontFamily: '"DM Sans", sans-serif', fontSize: '17px', color: '#D4CFC7', lineHeight: 1.8, margin: 0, maxWidth: '640px' }}>We know what it is like to live by your gear. Every decision that goes into our design process has your adventures in mind. Made by travelers, for travelers. Sustainably and responsibly sourced.</p>
-        </div>
-      </section>
-      <div style={{ maxWidth: '800px', margin: '0 auto', height: '1px', background: 'rgba(245,242,237,0.06)' }} />
-      <section style={{ padding: '60px 24px' }}>
-        <div style={{ maxWidth: '800px', margin: '0 auto', borderRadius: '12px', overflow: 'hidden' }}>
-          <img src="/mission.JPG" alt="The End Productions" style={{ width: '100%', height: 'auto', display: 'block' }} />
         </div>
       </section>
       <div style={{ maxWidth: '800px', margin: '0 auto', height: '1px', background: 'rgba(245,242,237,0.06)' }} />
@@ -49,6 +45,7 @@ export default function MissionPage() {
           <a href="/hand-of-humanity" style={{ display: 'inline-flex', alignItems: 'center', height: '48px', padding: '0 32px', borderRadius: '6px', background: '#C4530A', color: '#F5F2ED', fontSize: '15px', fontFamily: '"DM Sans", sans-serif', fontWeight: 600, textDecoration: 'none', marginTop: '8px' }}>Learn About Our Non-Profit →</a>
         </div>
       </section>
+      </div>
     </div>
   );
 }
