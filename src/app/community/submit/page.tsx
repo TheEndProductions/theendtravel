@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default function SubmitPage() {
   return (
     <div style={{ minHeight: '100vh', background: '#0A0A0A', position: 'relative' }}>
-      <video src="/escalator_web.mp4" muted loop playsInline autoPlay style={{ position: 'fixed', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.15, zIndex: 0 }} />
+      <video src="/escalator_web.mp4" muted loop playsInline autoPlay style={{ position: 'fixed', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.5, zIndex: 0 }} />
       <div style={{ position: 'relative', zIndex: 1, padding: '120px 24px 80px' }}>
       <div style={{ maxWidth: '560px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '40px', alignItems: 'center' }}>
         <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', gap: '12px' }}>
