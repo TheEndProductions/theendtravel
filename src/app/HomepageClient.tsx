@@ -33,10 +33,10 @@ export default function HomepageClient() {
         <section style={{ position: 'relative', padding: '100px 24px', overflow: 'hidden' }}>
           <video src="/waterfall_bali_web.mp4" muted loop playsInline autoPlay style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.15, zIndex: 0 }} />
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, #0A0A0A 0%, rgba(10,10,10,0.2) 20%, rgba(10,10,10,0.2) 80%, #0A0A0A 100%)', zIndex: 1 }} />
-          <div style={{ position: 'relative', zIndex: 2, maxWidth: '640px', margin: '0 auto', textAlign: 'center', display: 'flex', flexDirection: 'column', gap: '16px', alignItems: 'center' }}>
+          <div style={{ position: 'relative', zIndex: 2, maxWidth: '1088px', margin: '0 auto', textAlign: 'center', display: 'flex', flexDirection: 'column', gap: '16px', alignItems: 'center' }}>
             <SectionEyebrow>Our Mission</SectionEyebrow>
             <h2 style={{ fontFamily: '"Playfair Display", serif', fontSize: '28px', fontWeight: 600, color: '#F5F2ED', margin: 0 }}>Our foundation rests in understanding the common bond we all share, humanity.</h2>
-            <p style={{ fontFamily: '"DM Sans", sans-serif', fontSize: '16px', color: '#D4CFC7', lineHeight: 1.7, margin: 0 }}>Every film, every product, every project begins with a simple question: what happens when you show up with an open heart? The End Productions exists at the intersection of adventure, storytelling, and the quiet moments that change everything.</p>
+            <p style={{ fontFamily: '"DM Sans", sans-serif', fontSize: '16px', color: '#D4CFC7', lineHeight: 1.7, margin: 0, maxWidth: '800px' }}>Every film, every product, every project begins with a simple question: what happens when you show up with an open heart? The End Productions exists at the intersection of adventure, storytelling, and the quiet moments that change everything.</p>
           </div>
         </section>
 
