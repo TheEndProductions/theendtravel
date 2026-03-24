@@ -13,6 +13,15 @@ const films = [
     preview: '/i-once-imagined-preview.mp4',
   },
   {
+    title: 'Altruism',
+    type: 'Short Film',
+    location: 'Salt Lake City, Utah',
+    description: 'Find yourself in the service of others.',
+    video: '',
+    youtube: '6l8GMgUjEXU',
+    preview: '/tombe-altruism-preview.mp4',
+  },
+  {
     title: 'The Edge of Somewhere',
     type: 'Short Film',
     location: 'Patagonia, Argentina',
