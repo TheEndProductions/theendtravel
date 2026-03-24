@@ -31,7 +31,7 @@ export default function HomepageClient() {
 
         {/* 2. Mission */}
         <section style={{ position: 'relative', padding: '200px 24px', overflow: 'hidden' }}>
-          <video src="/waterfall_bali_web.mp4" muted loop playsInline autoPlay style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.3, zIndex: 0 }} />
+          <video src="/waterfall_bali_web.mp4" muted loop playsInline autoPlay style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.36, zIndex: 0 }} />
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, #0A0A0A 0%, rgba(10,10,10,0.2) 20%, rgba(10,10,10,0.2) 80%, #0A0A0A 100%)', zIndex: 1 }} />
           <div style={{ position: 'relative', zIndex: 2, maxWidth: '1088px', margin: '0 auto', textAlign: 'center', display: 'flex', flexDirection: 'column', gap: '16px', alignItems: 'center' }}>
             <SectionEyebrow>Our Mission</SectionEyebrow>
@@ -42,7 +42,7 @@ export default function HomepageClient() {
 
         {/* 3. Endless Backpack */}
         <section id="endless" style={{ position: 'relative', padding: '100px 24px', overflow: 'hidden' }}>
-          <img src="/endless-section-bg.jpg" alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.3 }} />
+          <img src="/endless-section-bg.jpg" alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.36 }} />
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, #0A0A0A 0%, rgba(10,10,10,0.2) 20%, rgba(10,10,10,0.2) 80%, #0A0A0A 100%)' }} />
           <div style={{ position: 'relative', zIndex: 1, maxWidth: '1200px', margin: '0 auto' }}>
           <SectionEyebrow>Gear</SectionEyebrow>
