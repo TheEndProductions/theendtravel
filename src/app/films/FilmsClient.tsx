@@ -22,6 +22,15 @@ const films = [
     preview: '/tombe-altruism-preview.mp4',
   },
   {
+    title: 'SALT',
+    type: 'Short Film',
+    location: 'Salt Flats, Utah',
+    description: 'A man walks alone.',
+    video: '',
+    youtube: 'm2-oNbE8gBo',
+    preview: '',
+  },
+  {
     title: 'The Edge of Somewhere',
     type: 'Short Film',
     location: 'Patagonia, Argentina',

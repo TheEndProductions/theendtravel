@@ -2,7 +2,7 @@
 import { useGlobe } from './GlobeProvider';
 import { CATEGORY_COLORS, CATEGORY_LABELS } from '@/lib/globe/constants';
 
-const YOUTUBE_MAP: Record<string, string> = { 'i-once-imagined': 'Ts9Xr9Nvz3w', 'altruism': '6l8GMgUjEXU' };
+const YOUTUBE_MAP: Record<string, string> = { 'i-once-imagined': 'Ts9Xr9Nvz3w', 'altruism': '6l8GMgUjEXU', 'salt': 'm2-oNbE8gBo' };
 
 export default function PinDetailPanel() {
   const { selectedPin, selectPin } = useGlobe();
