@@ -28,7 +28,7 @@ const films = [
     description: 'A man walks alone.',
     video: '',
     youtube: 'm2-oNbE8gBo',
-    preview: '',
+    preview: '/salt-preview.mp4',
   },
   {
     title: 'The Edge of Somewhere',

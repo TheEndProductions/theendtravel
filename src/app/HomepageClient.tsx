@@ -63,6 +63,8 @@ export default function HomepageClient() {
                     <video src="/i-once-imagined-preview.mp4" muted loop playsInline autoPlay style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                   ) : i === 1 ? (
                     <video src="/tombe-altruism-preview.mp4" muted loop playsInline autoPlay style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  ) : i === 2 ? (
+                    <video src="/salt-preview.mp4" muted loop playsInline autoPlay style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                   ) : '[FILM STILL]'}
                 </div>
                 <div style={{ padding: '16px' }}>
