@@ -39,7 +39,7 @@ export default function GlobeHeader() {
           </button>
         );
       })}
-      <a href="/" aria-label="Home" style={{ marginLeft: 'auto', opacity: 0.85, transition: 'opacity 0.2s', display: 'flex', alignItems: 'center' }} onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.opacity = '1'; }} onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.opacity = '0.85'; }}>
+      <a href="/" aria-label="Home" style={{ marginLeft: 'auto', opacity: 0.85, transition: 'all 0.3s ease', display: 'flex', alignItems: 'center' }} onMouseEnter={(e) => { const el = e.currentTarget as HTMLElement; el.style.opacity = '1'; el.style.transform = 'translateY(-4px)'; el.style.filter = 'drop-shadow(0 6px 12px rgba(196,83,10,0.3))'; }} onMouseLeave={(e) => { const el = e.currentTarget as HTMLElement; el.style.opacity = '0.85'; el.style.transform = 'translateY(0)'; el.style.filter = 'none'; }}>
         <img src="/logo.png" alt="Home" style={{ height: '45px', width: 'auto' }} />
       </a>
     </div>
