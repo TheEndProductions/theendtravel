@@ -22,7 +22,7 @@ export default function StickyTheEnd() {
       transform: visible ? (hovered ? 'translateX(-50%) translateY(-4px)' : 'translateX(-50%)') : 'translateX(-50%)',
       zIndex: 10001,
       opacity: visible ? 1 : 0,
-      filter: hovered ? 'drop-shadow(0 8px 16px rgba(255,255,255,0.15))' : 'none',
+      filter: hovered ? 'drop-shadow(0 8px 20px rgba(0,0,0,0.6)) drop-shadow(0 2px 6px rgba(0,0,0,0.4))' : 'none',
       transition: 'opacity 0.6s ease, transform 0.3s ease, filter 0.3s ease',
       pointerEvents: 'none',
     }}>
