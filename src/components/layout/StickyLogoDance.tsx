@@ -15,7 +15,7 @@ export default function StickyLogoDance() {
   }, []);
 
   return (
-    <a href="/" aria-label="Home"
+    <a href="/community/submit" aria-label="Community"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
