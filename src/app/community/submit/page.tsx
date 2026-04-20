@@ -25,7 +25,7 @@ export default function SubmitPage() {
 
       <div style={{ maxWidth: '560px', margin: '0 auto', padding: '60px 0 80px', display: 'flex', flexDirection: 'column', gap: '24px', alignItems: 'center', textAlign: 'center' }}>
         <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: '10px', color: '#C4530A', textTransform: 'uppercase', letterSpacing: '0.2em' }}>Get in Touch</div>
-        <h2 style={{ fontFamily: '"Playfair Display", serif', fontSize: '28px', fontWeight: 600, color: '#F5F2ED', margin: 0 }}>Contact Us</h2>
+        <h2 style={{ fontFamily: '"Playfair Display", serif', fontSize: '28px', fontWeight: 600, color: '#F5F2ED', margin: 0 }}>Contact & Collaborations</h2>
         <p style={{ fontFamily: '"DM Sans", sans-serif', fontSize: '16px', color: '#D4CFC7', lineHeight: 1.7, margin: 0, maxWidth: '440px' }}>Have a question, collaboration idea, or just want to say hello? We&apos;d love to hear from you.</p>
         <ContactForm />
       </div>
