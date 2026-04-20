@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import SubmissionForm from '@/components/community/SubmissionForm';
+import ContactForm from '@/components/community/ContactForm';
 
 export const metadata: Metadata = {
   title: 'Submit Your Story',
@@ -25,13 +26,8 @@ export default function SubmitPage() {
       <div style={{ maxWidth: '560px', margin: '0 auto', padding: '60px 0 80px', display: 'flex', flexDirection: 'column', gap: '24px', alignItems: 'center', textAlign: 'center' }}>
         <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: '10px', color: '#C4530A', textTransform: 'uppercase', letterSpacing: '0.2em' }}>Get in Touch</div>
         <h2 style={{ fontFamily: '"Playfair Display", serif', fontSize: '28px', fontWeight: 600, color: '#F5F2ED', margin: 0 }}>Contact Us</h2>
-        <p style={{ fontFamily: '"DM Sans", sans-serif', fontSize: '16px', color: '#D4CFC7', lineHeight: 1.7, margin: 0, maxWidth: '440px' }}>Have a question, collaboration idea, or just want to say hello? We'd love to hear from you.</p>
-        <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '12px', marginTop: '8px' }}>
-          <input type="text" placeholder="Your Name" style={{ height: '44px', borderRadius: '6px', border: '1px solid rgba(245,242,237,0.15)', background: 'rgba(10,10,10,0.6)', color: '#F5F2ED', fontSize: '14px', fontFamily: '"DM Sans", sans-serif', padding: '0 14px', outline: 'none', width: '100%' }} />
-          <input type="email" placeholder="Your Email" style={{ height: '44px', borderRadius: '6px', border: '1px solid rgba(245,242,237,0.15)', background: 'rgba(10,10,10,0.6)', color: '#F5F2ED', fontSize: '14px', fontFamily: '"DM Sans", sans-serif', padding: '0 14px', outline: 'none', width: '100%' }} />
-          <textarea placeholder="Your Message" rows={5} style={{ borderRadius: '6px', border: '1px solid rgba(245,242,237,0.15)', background: 'rgba(10,10,10,0.6)', color: '#F5F2ED', fontSize: '14px', fontFamily: '"DM Sans", sans-serif', padding: '12px 14px', outline: 'none', width: '100%', resize: 'vertical' }} />
-          <button style={{ height: '48px', borderRadius: '6px', border: 'none', background: '#C4530A', color: '#F5F2ED', fontSize: '15px', fontFamily: '"DM Sans", sans-serif', fontWeight: 600, cursor: 'pointer', marginTop: '4px' }}>Send Message →</button>
-        </div>
+        <p style={{ fontFamily: '"DM Sans", sans-serif', fontSize: '16px', color: '#D4CFC7', lineHeight: 1.7, margin: 0, maxWidth: '440px' }}>Have a question, collaboration idea, or just want to say hello? We&apos;d love to hear from you.</p>
+        <ContactForm />
       </div>
       </div>
     </div>

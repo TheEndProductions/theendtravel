@@ -110,7 +110,7 @@ export default function SubmissionForm() {
       if (instagram) fd.append('instagram', instagram);
       if (website) fd.append('website', website);
       fd.append('consent_globe_pin', consentGlobe ? 'yes' : 'no');
-      fd.append('_subject', `New ${type} submission: ${title}`);
+      fd.append('_subject', `[SUBMISSION] ${title}`);
 
       const res = await fetch(endpoint, { method: 'POST', body: fd, headers: { Accept: 'application/json' } });
       if (!res.ok) throw new Error('Submission failed');
