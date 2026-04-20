@@ -133,7 +133,7 @@ export default function SubmissionForm() {
     setSubmitted(false); setError('');
   };
 
-  const inputStyle: React.CSSProperties = { height: '44px', borderRadius: '6px', border: '1px solid rgba(245,242,237,0.12)', background: 'rgba(10,10,10,0.6)', color: '#F5F2ED', fontSize: '14px', fontFamily: '"DM Sans", sans-serif', padding: '0 14px', outline: 'none', width: '100%' };
+  const inputStyle: React.CSSProperties = { height: '44px', borderRadius: '6px', border: '1px solid rgba(245,242,237,0.12)', background: 'rgba(10,10,10,0.6)', color: '#F5F2ED', fontSize: '14px', fontFamily: '"DM Sans", sans-serif', padding: '0 14px', outline: 'none', width: '100%', boxSizing: 'border-box' };
   const textareaStyle: React.CSSProperties = { ...inputStyle, height: 'auto', padding: '12px 14px', resize: 'vertical', lineHeight: 1.6 };
   const labelStyle: React.CSSProperties = { fontFamily: '"JetBrains Mono", monospace', fontSize: '10px', color: '#8B7355', textTransform: 'uppercase', letterSpacing: '0.1em' };
   const fieldStyle: React.CSSProperties = { display: 'flex', flexDirection: 'column', gap: '8px' };
@@ -172,7 +172,7 @@ export default function SubmissionForm() {
         </div>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
         <div style={fieldStyle}>
           <label style={labelStyle}>Your Name</label>
           <input style={inputStyle} value={name} onChange={e => setName(e.target.value)} />
@@ -257,7 +257,7 @@ export default function SubmissionForm() {
           {showCredits ? '− ' : '+ '}Credits & Links (optional)
         </button>
         {showCredits && (
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginTop: '16px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginTop: '16px' }}>
             <div style={fieldStyle}>
               <label style={labelStyle}>Instagram</label>
               <input style={inputStyle} value={instagram} onChange={e => setInstagram(e.target.value)} placeholder="@handle" />
