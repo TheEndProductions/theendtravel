@@ -15,7 +15,7 @@ export default function StickyLogo() {
   }, []);
 
   return (
-    <a href="/" aria-label="Home"
+    <a href="/hand-of-humanity" aria-label="Hand of Humanity"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
