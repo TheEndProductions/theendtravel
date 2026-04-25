@@ -14,7 +14,7 @@ export default function HomepageEndlessSection() {
       <div style={{ flex: '1 1 340px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
         <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: '10px', color: '#C4530A', textTransform: 'uppercase', letterSpacing: '0.2em' }}>Coming Soon</div>
         <h2 style={{ fontFamily: '"Playfair Display", serif', fontSize: '32px', fontWeight: 600, color: '#F5F2ED', margin: 0, lineHeight: 1.2 }}>The Endless Backpack</h2>
-        <p style={{ fontFamily: '"DM Sans", sans-serif', fontSize: '15px', color: '#D4CFC7', lineHeight: 1.65, margin: 0 }}>A system, not just a bag. 4 pieces that work together to carry everything that matters.</p>
+        <p style={{ fontFamily: '"DM Sans", sans-serif', fontSize: '15px', color: '#D4CFC7', lineHeight: 1.65, margin: 0 }}>The Endless Ecosystem is four pieces engineered as one — they nest, attach, and adapt so you carry exactly what you need, whether that's a week in Southeast Asia or an afternoon in your own city.</p>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
           {ENDLESS_PIECES.map((p) => (
