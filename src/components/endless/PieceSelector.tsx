@@ -1,14 +1,16 @@
 'use client';
-import { useState } from 'react';
 import { ENDLESS_PIECES } from '@/lib/config/kickstarter';
 
-export default function PieceSelector() {
-  const [activeId, setActiveId] = useState('pack');
+interface Props {
+  activeId: string;
+  setActiveId: (id: string) => void;
+}
+
+export default function PieceSelector({ activeId, setActiveId }: Props) {
   const piece = ENDLESS_PIECES.find((p) => p.id === activeId)!;
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-      {/* Tabs */}
       <div style={{ display: 'flex', gap: '4px', borderBottom: '1px solid rgba(245,242,237,0.08)', paddingBottom: '0' }}>
         {ENDLESS_PIECES.map((p) => (
           <button key={p.id} onClick={() => setActiveId(p.id)} style={{ padding: '10px 20px', border: 'none', background: 'transparent', color: activeId === p.id ? '#F5F2ED' : 'rgba(245,242,237,0.4)', fontSize: '14px', fontFamily: '"DM Sans", sans-serif', fontWeight: activeId === p.id ? 600 : 400, cursor: 'pointer', borderBottom: activeId === p.id ? '2px solid #C4530A' : '2px solid transparent', transition: 'all 0.2s' }}>
@@ -17,9 +19,7 @@ export default function PieceSelector() {
         ))}
       </div>
 
-      {/* Two-column layout: Media left, Info right */}
       <div style={{ display: 'flex', gap: '32px', flexWrap: 'wrap' }}>
-        {/* Media Slot */}
         <div style={{
           flex: '1 1 380px', aspectRatio: '4/5', borderRadius: '12px', overflow: 'hidden',
           background: 'linear-gradient(135deg, rgba(196,83,10,0.06) 0%, rgba(10,10,10,0.8) 100%)',
@@ -29,22 +29,9 @@ export default function PieceSelector() {
         }}>
           {piece.media.src ? (
             piece.media.type === 'video' ? (
-              <video
-                key={piece.id}
-                src={piece.media.src}
-                muted
-                loop
-                playsInline
-                autoPlay
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-              />
+              <video key={piece.id} src={piece.media.src} muted loop playsInline autoPlay style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             ) : (
-              <img
-                key={piece.id}
-                src={piece.media.src}
-                alt={piece.name}
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-              />
+              <img key={piece.id} src={piece.media.src} alt={piece.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             )
           ) : (
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
@@ -58,7 +45,6 @@ export default function PieceSelector() {
           )}
         </div>
 
-        {/* Info right */}
         <div style={{ flex: '1 1 380px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
           <h3 style={{ fontFamily: '"Playfair Display", serif', fontSize: '24px', fontWeight: 600, color: '#F5F2ED', margin: 0 }}>{piece.name}</h3>
           <p style={{ fontFamily: '"DM Sans", sans-serif', fontSize: '15px', color: '#D4CFC7', lineHeight: 1.65, margin: 0 }}>{piece.description}</p>
