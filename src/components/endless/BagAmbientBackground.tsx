@@ -6,7 +6,7 @@ interface Props {
   opacity?: number;
 }
 
-export default function BagAmbientBackground({ activeId, opacity = 0.55 }: Props) {
+export default function BagAmbientBackground({ activeId, opacity = 0.65 }: Props) {
   return (
     <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none', zIndex: 0 }}>
       {ENDLESS_PIECES.map((p) => {
