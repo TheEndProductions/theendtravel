@@ -19,6 +19,7 @@ export const ENDLESS_PIECES = [
     specs: { Volume: '45L', Material: '900D recycled nylon + PU coating', Water: 'Waterproof w/ Aqua-Guard zippers', Laptop: 'Any size' },
     priceIndividual: 250,
     media: { type: 'image', src: '' },
+    bg: '/endless-bg-pack.mp4',
   },
   {
     id: 'daypack', name: 'The Daypack', subtitle: 'Your daily carry companion',
@@ -28,6 +29,7 @@ export const ENDLESS_PIECES = [
     specs: { Volume: '24L', Material: '900D recycled nylon + PU coating', Water: 'Waterproof w/ Aqua-Guard zippers', Laptop: '14–15"' },
     priceIndividual: 70,
     media: { type: 'image', src: '' },
+    bg: '/endless-bg-daypack.jpg',
   },
   {
     id: 'sling', name: 'The Sling', subtitle: 'Essentials on the move',
@@ -37,6 +39,7 @@ export const ENDLESS_PIECES = [
     specs: { Material: '900D recycled nylon + PU coating', Water: 'Waterproof w/ Aqua-Guard zippers' },
     priceIndividual: 45,
     media: { type: 'image', src: '' },
+    bg: '/endless-bg-sling.jpg',
   },
   {
     id: 'kit', name: 'The Kit', subtitle: 'Organized from the inside out',
@@ -46,6 +49,7 @@ export const ENDLESS_PIECES = [
     specs: { Material: '900D recycled nylon + PU coating', Water: 'Waterproof w/ Aqua-Guard zippers' },
     priceIndividual: 35,
     media: { type: 'image', src: '' },
+    bg: '/endless-bg-kit.jpg',
   },
 ];
 
